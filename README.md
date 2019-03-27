@@ -1,5 +1,5 @@
 
-Module 3 project Ironhack by Andreu, Agustin &amp; Xavi
+Module 3 project Ironhack by Andreu, Matias &amp; Xavi
 # Project Name
 
 ## Description
