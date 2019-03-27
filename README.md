@@ -1,68 +1,205 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Module 3 project Ironhack by Andreu, Agustin &amp; Xavi
+# Project Name
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+This is a system acution intended for exchanging services between privates.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## User Stories
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+-  **404:** As an anon/user I can see a 404 page if I try to reach a page that does not exist so that I know it's my fault
+-  **Signup:** As an anon I can sign up in the platform so that I can see the signup form.
+-  **Login:** As a user I can login to the platform so that I can see the login page.
+-  **Logout:** As a user I can logout from the platform so no one else can use it
+-  **Add auction** As a user I can CRUD an auction to provide a service so anybody can bid on it
+-  **List Auctions** As a user I'll see the open auctions.
+-  **Edit my profile** As a user I'll feed my profile, update it or even delete it. (CRUD )
+-  **Auctions detail** As a user I want to see my auctions detail (img,name, desc, ..., 
+-  **See my offering auctions** As a user I want to list my autions on bid
+-  **See finished auction ** As a user I want to see finished auction and counterpart contact info
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Backlog
 
-### `npm run build`
+- Pasarela de pago. (stripe)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Messaging. to the users from the system to notify auction events, between users fr 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Geo Location:
+- add geolocation to the users / services
+- show event in a map in event detail page
+- show all events in a map in the event list page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  
+# Client
 
-### `npm run eject`
+## Routes
+| Method | Path 		| Component 		| Permissions	| Behavior | 
+|--------|----------------------|-----------------------|---------------|-------------------------------------------------------------|
+ `get`   |`/`		 	|HomePageComponent	|public         |
+ `post`  |`/auth/signup` 	|SignupPageComponent	|anon only	|signup form, link to login, navigate to homepage after signup
+ `post`  |`/auth/login` 	|LoginPageComponent 	|anon only 	|Login form, link to signup, navigate to homepage after login 
+ `post`  |`/auth/logout` 	|n/a	 		|anon only 	|navigate to homepage after logout, expire session 
+ `get` 	 |`/user/me`     	|UserProfile		|user only 	|details of my user
+ `put` 	 |`/user/:id/edit` 	|UserProfile Edit	|user only 	|edit my user profile
+ `get`   |`/auctions` 	 	|List Auctioms	 	|user only 	|show all auctions except mine ones
+ `get`   |`/auction/:id` 	|Auction Detail	 	|user only 	|show auction details
+ `post`	 |`/auctions/create` 	|Auction Create	 	|user only 	|create a new auction
+ `delete`|`/auction/:id` 	|Auction Delete	 	|user only 	|delete auction
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Components
+- Homepage
+- Form Signup
+- Form Login
+- AuctionList 
+ - AuctionCard component
+- AuctionDetail
+- Auction Create
+ - Form create auction
+- Profile
+ - AuctionCard component 
+- 					NAVBAR
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Services
 
-### Code Splitting
+- Auth Service
+  - auth.login(user)
+  - auth.signup(user)
+  - auth.logout()
+  - auth.me()
+  - auth.getUser() // synchronous
+- Auction Service
+  - auction.list()
+  - auction.create(data)
+  - auction.detail(id)
+  - auction.delete(id)
+  
+# Server
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Models
 
-### Analyzing the Bundle Size
+User model
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```
+username - String // required
+password - String // required
+image	 - String // optional
+Mobile	 - Phone??  // optional
+```
 
-### Making a Progressive Web App
+Service model
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```
+owner		 - ObjectID<User> // required
+name		 - String // required
+description 	 - String // required
+starting price   - Number // require
+Ending time	 - Date DD/MM/YYYY HH:MM:SS //required
 
-### Advanced Configuration
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Bid model
+``` 
+Service		- ObjectID<User> // required
+Buyer		- ObjectID<User> // required
+Price		- Number	 // required
+SellerRating	- Number         // optional
+BuyerRating 	- Number         // optional
 
-### Deployment
+## API Endpoints (backend routes)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- GET /auth/me
+  - 404 if no user in session
+  - 200 with user object
+- POST /auth/signup
+  - 401 if user logged in
+  - body:
+    - username
+    - email
+    - password
+  - validation
+    - fields not empty (422)
+    - user not exists (409)
+  - create user with encrypted password
+  - store user in session
+  - 200 with user object
+- POST /auth/login
+  - 401 if user logged in
+  - body:
+    - username
+    - password
+  - validation
+    - fields not empty (422)
+    - user exists (404)
+    - passdword matches (404)
+  - store user in session
+  - 200 with user object
+- POST /auth/logout
+  - body: (empty)
+  - 204
 
-### `npm run build` fails to minify
+ - GET `/user/me`  
+   - 403 if no user in session 
+   - 401 if user-id <> me
+   - 200/202 with user object  
+		
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ - PUT `/user/:id/edit` 
+   - 403 if no user session
+   - 404 if no user id
+   - 401 if user not me
+
+   - 200/202 with user object  
+   
+ - GET `/auctions` 
+    - 200/202 with auction list
+    - 204 with nothing
+
+ - GET  `/auction/:id` 
+    - 200 with auction object.
+    - 404 when not found
+    - 401 when no session     
+
+-  POST  `/auctions/create` 
+    - 401 when no session 
+    - body: 
+	-name 
+	-description 
+	-startingprice 
+	-Ending time
+   - validation
+	- fields not empty (422)    
+    - store auction in db
+    - 200 with auction    
+
+
+-  DELETE `/auction/:id` 
+    - 200 removed from db body: (empty )
+    - 404 not found (if 2 deletes are issued at a time) 
+    - 401 when no session
+     
+## Links
+
+### Trello
+	https://trello.com/b/0dXAukbd
+
+
+### Git
+
+	https://github.com/xavivax1/m3-project
+
+[Client repository Link](http://github.com)
+[Server repository Link](http://github.com)
+[Deploy Link](http://heroku.com)
+
+### Slides
+
+The url to your presentation slides
+
+	https://slides.com/xavierdeviala/deck/edit
