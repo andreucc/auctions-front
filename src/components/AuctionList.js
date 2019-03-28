@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuctionCard from './AuctionCard';
 import axios from 'axios';
-
+import TabButtons from './Components/TabButtons'
 
 class AuctionList extends Component {
   
@@ -35,7 +35,7 @@ class AuctionList extends Component {
       case true:
       return (
       <div>
-        <p>hola</p>
+        <TabButtons/>
 
         {this.state.auctions.map((auction, index) => {
           return <AuctionCard 

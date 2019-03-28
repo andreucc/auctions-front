@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../components/AuthProvider';
 
+
 class Navbar extends Component {
   render() {
     const { isLogged, user, logout } = this.props;
-    const { username } = user;
+    const { image } = user;
     if (isLogged) {
       return <div>
-        <p>username: { username }</p>
-        <p onClick={logout}>Logout</p>
+        <span>menu</span>
+        <img src={image} alt=""/>
+        {/* <p onClick={logout}>Logout</p> */}
       </div>
     } else {
       return <div>
