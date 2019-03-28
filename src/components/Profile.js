@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TabButtons from './Components/TabButtons'
-import ProfileHeader from './Components/ProfileHeader'
-import AuctionList from './Components/AuctionList'
+import TabButtons from './TabButtons'
+import ProfileHeader from './ProfileHeader'
+import AuctionList from './AuctionList'
 
 class Profile extends Component {
   render() {

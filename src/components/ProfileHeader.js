@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TabButtons from './Components/TabButtons'
+import TabButtons from './TabButtons'
 
 class ProfileHeader extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuctionCard from './AuctionCard';
-import axios from 'axios';
-import TabButtons from './Components/TabButtons'
+import TabButtons from './TabButtons';
+import apiService from '../lib/api-service'
 
 class AuctionList extends Component {
   
@@ -10,21 +10,20 @@ class AuctionList extends Component {
     status: false
   }
 
-  componentDidMount()
-  {
-     axios.get('http://localhost:5000/api/auctions')
-    .then(({data}) => {
-      this.setState({
-        auctions : data,
-        status: true
-      })
-      console.log(this.state.auctions)
+componentDidMount()
+{
+  apiService.getAuctions()
+  .then((data) => {
+    this.setState({
+      auctions : data,
+      status: true
     })
-    .catch((err) => {
-      console.log(err)
-    })
-    
-  }
+    console.log(this.state.auctions)
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+}
 
   render() {
     console.log(this.state.auctions);
