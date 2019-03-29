@@ -1,5 +1,6 @@
 {
   "projects": {
-    "ironauction": "ironauction-98f23"
+    "ironauction": "ironauction-98f23",
+    "default": "ironauction-98f23"
   }
 }
