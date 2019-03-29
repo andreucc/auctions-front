@@ -17,6 +17,11 @@ class ApiService {
     return this.api.get('/api/user/me')
       .then(({ data }) => data);
   }
+
+  updateProfile(body) {
+    return this.api.put('/user/:id/edit', body)
+    .then(({ data }) => data); 
+  }
   
   getMyAuctions() {
     return this.api.get('/api/auctions/me')

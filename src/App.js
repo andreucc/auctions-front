@@ -10,6 +10,7 @@ import Home from './components/Home'
 import AuctionList from './components/AuctionList'
 import AuthProvider from './components/AuthProvider';
 import Profile from './components/Profile';
+import FormEditUser from './components/FormEditUser';
 import './App.css'
 
 
@@ -26,6 +27,7 @@ class App extends Component {
             <AnonRoute path="/login" component={Login} />
             <PrivateRoute path="/auctions" component={AuctionList} />
             <PrivateRoute path="/myprofile" component={Profile}/>
+            <PrivateRoute exact path="/user/:id/edit" component={FormEditUser}/>
           </Switch>
         </div>
       </AuthProvider>
