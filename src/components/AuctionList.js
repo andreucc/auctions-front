@@ -10,12 +10,11 @@ class AuctionList extends Component {
     status: false
   }
 
-componentDidMount()
-{
+componentDidMount() {
   apiService.getAuctions()
   .then((data) => {
     this.setState({
-      auctions : data,
+      auctions : data.data,
       status: true
     })
     console.log(this.state.auctions)
@@ -23,6 +22,19 @@ componentDidMount()
   .catch((err) => {
     console.log(err);
   })
+}
+
+
+renderCard = () => {
+return this.state.auctions.map((auction, index) => {
+        return <AuctionCard 
+                  key={`id-${index}`}
+                  image={auction.image}
+                  name={auction.name}
+                  owner={auction.owner}
+                  price={auction.StartingPrice}
+                />
+      }) 
 }
 
   render() {
@@ -35,18 +47,7 @@ componentDidMount()
       return (
       <div>
         <TabButtons/>
-
-        {this.state.auctions.map((auction, index) => {
-          return <AuctionCard 
-            key={`id-${index}`}
-            image={auction.image}
-            name={auction.name}
-            owner={auction.owner}
-            price={auction.StartingPrice}
-          />
-        })
-        } 
-         
+        {this.renderCard()}
       </div>
     );
     default:
