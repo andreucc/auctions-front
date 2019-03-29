@@ -13,6 +13,15 @@ class ApiService {
       .then(({ data }) => data);
   }
 
+  getProfile() {
+    return this.api.get('/api/user/me')
+      .then(({ data }) => data);
+  }
+  
+  getMyAuctions() {
+    return this.api.get('/api/auctions/me')
+      .then(({ data }) => data);
+  }
 
 }
 

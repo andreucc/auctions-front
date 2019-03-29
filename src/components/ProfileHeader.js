@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import TabButtons from './TabButtons'
 
 class ProfileHeader extends Component {
   render() {
     return (
       <div>
-        <h2>Name</h2>
-        <p>Location</p>
-        <img src="" alt="profile picture"/>
+        <h2>{this.props.name}</h2>
+        <p>{this.props.sitio}</p>
+        <img src={this.props.image} alt="profile"/>
       </div>
     );
   }
