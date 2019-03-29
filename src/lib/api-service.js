@@ -8,13 +8,12 @@ class ApiService {
     })
   }
 
-  
   getAuctions() {
-    return this.api.get('/auctions')
+    return this.api.get('/api/auctions')
       .then(({ data }) => data);
   }
 
- 
+
 }
 
 const apiService = new ApiService();
