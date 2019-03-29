@@ -30,10 +30,11 @@ class Login extends Component {
         <input type="text" name="username" value={username} onChange={this.handleChange}/>
         <label>Password:</label>
         <input type="password" name="password" value={password} onChange={this.handleChange} />
-        <input type="submit" value="Login" />
+        <input className="btn btn-primary" type="submit" value="Login" />
       </form>
     )
   }
 }
 
 export default withAuth(Login);
+

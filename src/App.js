@@ -10,6 +10,7 @@ import Home from './components/Home'
 import AuctionList from './components/AuctionList'
 import AuthProvider from './components/AuthProvider';
 import Profile from './components/Profile';
+import './App.css'
 
 
 
