@@ -8,7 +8,8 @@ class FormEditUser extends Component {
       username: '',
       location: '',
       mobile: '',
-      id: ''
+      id: '',
+      image: ''
    }
 
    componentDidMount(){
@@ -19,7 +20,8 @@ class FormEditUser extends Component {
             id: data._id,
             username: data.username,
             location: data.location,
-            mobile: data.mobile
+            mobile: data.mobile,
+            image: data.image
          })
       }).catch((err) => {
          console.log(err)
@@ -28,8 +30,9 @@ class FormEditUser extends Component {
 
    handleUpdateUser = (event) => {
       event.preventDefault();
-      const { id, username, location, mobile } = this.state;
-      const body = {username, location, mobile}
+      const { id, username, location, mobile, image } = this.state;
+      const body = {username, image, mobile, location }
+      console.log(body)      
       apiService.updateProfile(id, body)
    }
 
@@ -39,7 +42,7 @@ class FormEditUser extends Component {
    }
 
    render() {
-      const {status, location, username, mobile} = this.state;
+      const {status, image, location, username, mobile} = this.state;
       switch(status){
          case false:
          return "cargando..."
@@ -52,6 +55,7 @@ class FormEditUser extends Component {
                <input onChange={this.handleInput} type="text" name="username"  value={username} placeholder="username"/>
                {/* <input type="password" value="" placeholder="password"/> */}
                <input onChange={this.handleInput} type="number" name="mobile" value={mobile} placeholder="mobile"/>
+               <input onChange={this.handleInput} type="text" name="image" value={image} placeholder="image"/>
                {/* <input type="submit" value="submit"/> */}
                <button type="submit">Editar</button>
             </form>
