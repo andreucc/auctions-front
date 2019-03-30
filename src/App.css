@@ -22,18 +22,29 @@ html {
  li {
    list-style: none;
  }
+
+ /* --- All ---*/
  .row{
    margin: 0 auto;
    padding: 0 20px;
  }
 
+ .main-section {
+   margin-top: 70px;
+ }
+
 /* --- Buttons --- */
 .btn{
+   display: block;
+   text-decoration: none;
    border-radius: 8px;
    border: 0;
-   padding: 8px 0;
+   padding: 15px 0;
    width: 90%;
    font-size: 1em;
+   text-align: center;
+   margin: 0 auto;
+   
 }
 
 .btn-primary{
@@ -45,13 +56,27 @@ html {
    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24c3b6', endColorstr='#38d890',GradientType=1 ); /* IE6-9 */
 }
 
-/* --- Tab Buttons --- */
-.tabs{
-  display: flex;
-  justify-content: space-around; 
+.buttons-bottom p {
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
 }
 
-.tabs .btn-tabs{
+.buttons-bottom p a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #27C6B1;
+}
+
+/* --- Tab Buttons --- */
+.tabs-container{
+  display: flex;
+  justify-content: space-around; 
+  padding-top:20px;
+}
+
+.tabs-container .btn-tabs{
+   border-radius: 50px;
    border: 0;
    padding: 12px 0;
    width: 45%;
@@ -60,7 +85,7 @@ html {
 }
 
 
-.tabs .btn-tabs.active{
+.tabs-container .btn-tabs.active{
    color: #ffffff;
    background: #24c3b6; /* Old browsers */
    background: -moz-linear-gradient(left, #24c3b6 0%, #38d890 100%); /* FF3.6-15 */
@@ -78,6 +103,7 @@ html {
    user-select: none;
    position: relative;
    left: 20px;
+   top: 15px
  }
  
  #menuToggle input{
@@ -152,8 +178,8 @@ html {
   * at the top left of the screen
   */
  #menu{
-   top: 79px;
-   left: 25px;
+   top: 75px;
+   left: 10px;
    position: absolute;
    width: 300px;
    height: 100vh;
@@ -189,9 +215,67 @@ html {
  }
  
 
-/* --- Header --- */
+/* --- Navbar --- */
+.navbar {
+  height: 70px;
+  position: fixed;
+  background-color: #ffffff;
+  width: 100%;
+  border-bottom: 1px solid #eaebec;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  top: 0;
+}
+
+.navbar .navbar-inner {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navbar .navbar-inner .img-profile {
+  height: 45px;
+  width: 45px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.navbar-annon {
+  height: 70px;
+  position: fixed;
+  background-color: #ffffff;
+  width: 100%;
+  border-bottom: 1px solid #eaebec;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  top: 0;
+}
+
+.navbar-annon navbar-inner-annon {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 
 /* ---- Hero ---- */
+
+.hero {
+  background: url(./images/splash-img.png) no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: stretch;
+  width: 100%;
+}
 
 /* ---- Forms ---- */
 

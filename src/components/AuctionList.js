@@ -30,8 +30,8 @@ class AuctionList extends Component {
       case false:
         return "cargando"
       case true:
-        return (
-          <div>
+        return ( 
+          <div className="main-section">
             <div className="row">
               <TabButtons />
               <ul>

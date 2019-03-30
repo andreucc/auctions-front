@@ -21,8 +21,7 @@ class App extends Component {
   render() {
     return (
       <AuthProvider>
-        <div className="container">
-          <Navbar data='data' />
+        <Navbar data='data' />
           <Switch>
             <AnonRoute exact path="/" component={Home}/>
             <AnonRoute path="/signup" component={Signup} />
@@ -32,9 +31,7 @@ class App extends Component {
             <PrivateRoute exact path="/myprofile" component={Profile}/>
             <PrivateRoute exact path="/user/:id/edit" component={FormEditUser}/>
             <PrivateRoute exact path="/auction/create" component={FormCreateAuction}/>
-
           </Switch>
-        </div>
       </AuthProvider>
     )
   }

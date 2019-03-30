@@ -33,6 +33,11 @@ class Signup extends Component {
     const { username, password } = this.state;
     return (
       <div>
+        <div className="navbar-annon">
+          <div className="row navbar-inner-annon">
+            <p>Signup</p>
+          </div>
+        </div>
         <form onSubmit={this.handleFormSubmit}>
           <label>Username:</label>
           <input type="text" name="username" value={username} onChange={this.handleChange}/>
@@ -40,7 +45,6 @@ class Signup extends Component {
           <input type="password" name="password" value={password} onChange={this.handleChange} />
           <input type="submit" value="Signup" />
         </form>
-
         <p>Already have account? 
           <Link to={"/login"}> Login</Link>
         </p>

@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from './AuthProvider';
-
+import Sidebar from '../components/Sidebar'
 
 class Navbar extends Component {
   render() {
     const { isLogged, user, logout } = this.props;
     const { image } = user;
     if (isLogged) {
-      return <div>
-        <span>menu</span>
-        <img src={image} alt=""/>
-        {/* <p onClick={logout}>Logout</p> */}
+      return (
+      <div className="navbar">
+        <div className="row navbar-inner">
+          <Sidebar />
+          <p>menu</p>
+          <img className="img-profile" src={image} alt=""/>
+        </div>
       </div>
+      )
     } else {
-      return <div>
-        <Link to='/login'>Login</Link>
-        <Link to='/signup'>Signup</Link>
-      </div>
+      return <div></div>
     }
   
   }

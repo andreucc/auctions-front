@@ -32,7 +32,7 @@ componentDidMount()
       return "cargando"
       case true:
       return (
-      <div>
+      <div className="main-section">
         <TabButtons/>
         {this.state.auctions.map((auction, index) => {
           return <AuctionCard 
