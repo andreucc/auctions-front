@@ -3,19 +3,24 @@ import React, { Component } from 'react';
 class AuctionCard extends Component {
   render() {
     return (
-      <div className="card">
-        <div>
+      <li className="card">
+        <div className="img-container">
           <p>Timer</p>
-          <img src={this.props.image} alt="imgservice"/>
+          <img src={this.props.image} alt="imgservice" />
           <h3>{this.props.name}</h3>
-          <span>{this.props.price}€</span>
+          <span className="current-price">{this.props.price}€</span>
         </div>
-        <div>
-          <img src={this.props.userimage} alt="imguser"/>
-          <h4>{this.props.buyername}</h4>
-          <p>{this.props.buyerlocation}</p>
+        <div className="info-container">
+          <div className="user-info">
+            <div className="img-profile">
+              <img src={this.props.userimage} alt="imguser" />
+            </div>
+
+            <h4>{this.props.buyername}</h4>
+          </div>
+          <p className="location">{this.props.buyerlocation}</p>
         </div>
-      </div>
+      </li>
     );
   }
 }

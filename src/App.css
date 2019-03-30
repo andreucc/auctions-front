@@ -1,6 +1,7 @@
 
 /* ---- reset ---- */
 
+
 html {
    box-sizing: border-box;
  }
@@ -13,6 +14,14 @@ html {
    padding: 0;
  }
 
+ ul {
+   margin: 0;
+   padding: 0;
+ }
+
+ li {
+   list-style: none;
+ }
  .row{
    margin: 0 auto;
    padding: 0 20px;
@@ -187,6 +196,82 @@ html {
 /* ---- Forms ---- */
 
 /* ---- Auction Card ---- */
+.card {
+  /* height: 220px; */
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.53);
+  -moz-box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.53);
+  box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.18);
+}
+
+.card .img-container {
+  position: relative;
+  height: 140px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;  
+}
+
+.card .img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card .img-container p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  font-size: 1.2em;
+  margin: 15px;
+}
+
+.card .img-container .current-price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+  color: #38D890;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 1.2em;
+  margin: 15px;
+}
+
+.user-info {
+  display: flex;
+}
+
+.card .info-container {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card .info-container .img-profile {
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-right: 10px;
+  
+}
+
+.card .info-container .img-profile img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card .info-container p {
+  color: #9FA5AA;
+}
+
 
 /* ---- Auction list ---- */
 

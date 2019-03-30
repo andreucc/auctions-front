@@ -12,6 +12,7 @@ import AuthProvider from './components/AuthProvider';
 import Profile from './components/Profile';
 import FormEditUser from './components/FormEditUser';
 import FormCreateAuction from './components/FormCreateAuction';
+import MyAuctionList from './components/MyAuctionList';
 import './App.css'
 
 
@@ -26,8 +27,9 @@ class App extends Component {
             <AnonRoute exact path="/" component={Home}/>
             <AnonRoute path="/signup" component={Signup} />
             <AnonRoute path="/login" component={Login} />
-            <PrivateRoute path="/auctions" component={AuctionList} />
-            <PrivateRoute path="/myprofile" component={Profile}/>
+            <PrivateRoute exact path="/auctions" component={AuctionList} />
+            <PrivateRoute exact path="/auctions/me" component={MyAuctionList} />
+            <PrivateRoute exact path="/myprofile" component={Profile}/>
             <PrivateRoute exact path="/user/:id/edit" component={FormEditUser}/>
             <PrivateRoute exact path="/auction/create" component={FormCreateAuction}/>
 
