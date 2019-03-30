@@ -1,34 +1,45 @@
 import React, { Component } from 'react';
-import MainButton from './MainButton';
 import apiService from '../lib/api-service';
 
 
 class FormEditUser extends Component {
    state = {
-      userProfile : [],
-      status: false
-   }
-
-   handleUpdateUser(){
-      const body = { }
-      apiService.updateProfile()
-
+      status: false,
+      username: '',
+      location: '',
+      mobile: '',
+      id: ''
    }
 
    componentDidMount(){
       apiService.getProfile()
       .then ((data) => {
          this.setState({
-            userProfile : data,
-            status : true
+            status : true,
+            id: data._id,
+            username: data.username,
+            location: data.location,
+            mobile: data.mobile
          })
       }).catch((err) => {
          console.log(err)
       })
    }
 
+   handleUpdateUser = (event) => {
+      event.preventDefault();
+      const { id, username, location, mobile } = this.state;
+      const body = {username, location, mobile}
+      apiService.updateProfile(id, body)
+   }
+
+   handleInput = (event) => {
+      const { name, value } = event.target
+      this.setState({ [name]: value })
+   }
+
    render() {
-      const {status} = this.state;
+      const {status, location, username, mobile} = this.state;
       switch(status){
          case false:
          return "cargando..."
@@ -37,11 +48,12 @@ class FormEditUser extends Component {
             <div>
                <p>Hola</p>
             <form onSubmit={this.handleUpdateUser}>
-               <input type="text" name="location"  value={this.state.userProfile.location} placeholder="location"/>
-               <input type="text" name="username"  value={this.state.userProfile.username} placeholder="username"/>
+               <input onChange={this.handleInput} type="text" name="location"  value={location} placeholder="location"/>
+               <input onChange={this.handleInput} type="text" name="username"  value={username} placeholder="username"/>
                {/* <input type="password" value="" placeholder="password"/> */}
-               <input type="number" name="mobile" value={this.state.userProfile.mobile} placeholder="mobile"/>
-               <input type="submit" value="submit"/>
+               <input onChange={this.handleInput} type="number" name="mobile" value={mobile} placeholder="mobile"/>
+               {/* <input type="submit" value="submit"/> */}
+               <button type="submit">Editar</button>
             </form>
          </div>
          )

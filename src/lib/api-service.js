@@ -18,8 +18,8 @@ class ApiService {
       .then(({ data }) => data);
   }
 
-  updateProfile(body) {
-    return this.api.put('/user/:id/edit', body)
+  updateProfile(id, body) {
+    return this.api.put(`/api/user/${id}/edit`, body)
     .then(({ data }) => data); 
   }
   
