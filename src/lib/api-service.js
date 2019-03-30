@@ -35,7 +35,7 @@ class ApiService {
 
   getAuctionDetail(id) {
     return this.api.get(`/api/auction/${id}`)
-      .then(({ data }) => data.data)
+      .then(({ data }) => data)
   }
 }
 

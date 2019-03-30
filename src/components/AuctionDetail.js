@@ -21,12 +21,12 @@ class AuctionDetail extends Component {
       .then((data) => {
         console.log(data);
         this.setState({
-          image: data.service.image,
-          name: data.service.name,
-          price: data.price,
-          imageBuyer: data.buyer.image,
-          locationBuyer: data.buyer.location,
-          nameBuyer: data.buyer.name,
+          image: data.data[0].service.image,
+          name: data.data[0].service.name,
+          price: data.data[0].price,
+          imageBuyer: data.data[0].buyer.image,
+          locationBuyer: data.data[0].buyer.location,
+          nameBuyer: data.data[0].buyer.name,
           status: true
         })
       })
