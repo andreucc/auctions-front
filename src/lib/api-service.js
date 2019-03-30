@@ -18,6 +18,11 @@ class ApiService {
       .then(({ data }) => data);
   }
 
+  createAuction(body){
+    return this.api.post('/api/auction/create', body)
+    .then(({data})=> data);
+  }
+
   updateProfile(id, body) {
     return this.api.put(`/api/user/${id}/edit`, body)
     .then(({ data }) => data); 
