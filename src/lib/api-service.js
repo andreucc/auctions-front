@@ -33,6 +33,10 @@ class ApiService {
       .then(({ data }) => data);
   }
 
+  getAuctionDetail(id) {
+    return this.api.get(`/api/auction/${id}`)
+      .then(({ data }) => data.data)
+  }
 }
 
 const apiService = new ApiService();

@@ -14,6 +14,7 @@ import FormEditUser from './components/FormEditUser';
 import FormCreateAuction from './components/FormCreateAuction';
 import MyAuctionList from './components/MyAuctionList';
 import './App.css'
+import AuctionDetail from './components/AuctionDetail';
 
 
 
@@ -31,6 +32,7 @@ class App extends Component {
             <PrivateRoute exact path="/myprofile" component={Profile}/>
             <PrivateRoute exact path="/user/:id/edit" component={FormEditUser}/>
             <PrivateRoute exact path="/auction/create" component={FormCreateAuction}/>
+            <PrivateRoute exact path="/auction/:id" component={AuctionDetail}/>
           </Switch>
       </AuthProvider>
     )

@@ -38,6 +38,7 @@ class AuctionList extends Component {
                 {this.state.auctions.map((auction, index) => {
                   return <AuctionCard
                     key={`id-${index}`}
+                    id={auction.service._id}
                     image={auction.service.image}
                     name={auction.service.name}
                     owner={auction.service.owner}
@@ -46,7 +47,6 @@ class AuctionList extends Component {
                     buyername={auction.buyer.username}
                     buyerlocation={auction.buyer.location}
                   />
-
                 })
                 }
               </ul>

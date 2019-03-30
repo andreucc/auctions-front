@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
 
 class AuctionCard extends Component {
   render() {
@@ -6,7 +7,7 @@ class AuctionCard extends Component {
       <li className="card">
         <div className="img-container">
           <p>Timer</p>
-          <img src={this.props.image} alt="imgservice" />
+          <Link to={`/auction/${this.props.id}`}><img src={this.props.image} alt="imgservice" /></Link>
           <h3>{this.props.name}</h3>
           <span className="current-price">{this.props.price}€</span>
         </div>
