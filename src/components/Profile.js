@@ -22,6 +22,8 @@ class Profile extends Component {
       .catch((err) => {
         console.log(err);
       })
+      console.log(this.state.profile);
+
     }
     
   render() {
@@ -36,6 +38,7 @@ class Profile extends Component {
             name={this.state.profile.username}
             sitio={this.state.profile.location}
             image={this.state.profile.image}
+            id={this.state.profile.id}
           /> 
           <MyAuctionList />
         </div>
