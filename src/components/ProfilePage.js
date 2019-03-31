@@ -60,10 +60,3 @@ class ProfilePage extends Component {
   }
 }
 export default ProfilePage;
-/*
-            onUploadStart={this.handleUploadStart}
-            onUploadError={this.handleUploadError}
-            onUploadSuccess={this.handleUploadSuccess}
-            onProgress={this.handleProgress}
-
-*/
