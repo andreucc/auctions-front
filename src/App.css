@@ -61,6 +61,14 @@ html {
    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24c3b6', endColorstr='#38d890',GradientType=1 ); /* IE6-9 */
 }
 
+.buttons-bottom {
+  width: 100%;
+}
+
+.buttons-bottom.form p{
+  color: #9B9B9B
+}
+
 .buttons-bottom p {
   color: #ffffff;
   font-weight: bold;
@@ -296,29 +304,31 @@ html {
   align-items: center;
 }
 
-.form-section .user-form .field {
+.form-section .user-form .container-fields {
+  width: 100%;
+}
+
+.form-section .user-form .container-fields .field {
   margin-bottom: 20px;
 }
 
-.form-section .user-form .field input{
+.form-section .user-form .container-fields .field input{
   background-color: #F8F8F8;
   border: 0;
   padding: 16px 10px;
   border-radius: 50px;
+  width: 100%;
 }
 
-.form-section .user-form .field input::placeholder{
+.form-section .user-form .container-fields .field input::placeholder{
   color:#8B959E;
 }
 
-.form-section .user-form .field label{
+.form-section .user-form .container-fields .field label{
   display: block;
   margin-bottom: 8px;
 }
 
-.field {
-
-}
 
 
 

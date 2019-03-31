@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withAuth } from '../components/AuthProvider';
+import { Link } from 'react-router-dom';
+
 class Login extends Component {
   state = {
     username: "",
@@ -31,9 +33,10 @@ class Login extends Component {
             <p>Login</p>
           </div>
         </div>
+        <div className="row">
         <section className="form-section">
           <form className="user-form" onSubmit={this.handleFormSubmit}>
-            <div>
+            <div className="container-fields">
               <div className="field">
                 <label>Username:</label>
                 <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username"/>
@@ -43,9 +46,15 @@ class Login extends Component {
                 <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" />
               </div>
             </div>
-            <input className="btn btn-primary" type="submit" value="Login" />
+            <div className="buttons-bottom form">
+              <input className="btn btn-primary" type="submit" value="Login" />
+              <p>Don't have you acount? 
+               <Link to={"/signup"}>Signup</Link>
+              </p>
+            </div>
           </form>
         </section>
+        </div>
       </div>
     )
   }
