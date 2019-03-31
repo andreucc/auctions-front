@@ -22,8 +22,6 @@ class Profile extends Component {
       .catch((err) => {
         console.log(err);
       })
-      console.log(this.state.profile);
-
     }
     
   render() {

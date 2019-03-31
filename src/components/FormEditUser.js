@@ -41,7 +41,7 @@ class FormEditUser extends Component {
             progress: 100,
             isUploading: false
          });
-      firebase.storage().ref('auctionUser').child(filename)
+      firebase.storage().ref('userImages').child(filename)
          .getDownloadURL()
          .then(url => this.setState({ image: url }));
    };
@@ -78,7 +78,7 @@ class FormEditUser extends Component {
                         accept="image/*"
                         name="image"
                         randomizeFilename
-                        storageRef={firebase.storage().ref('auctionUser')}
+                        storageRef={firebase.storage().ref('userImages')}
                         onUploadStart={this.handleUploadStart}
                         onUploadError={this.handleUploadError}
                         onUploadSuccess={this.handleUploadSuccess}

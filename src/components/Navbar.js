@@ -7,20 +7,23 @@ class Navbar extends Component {
   render() {
     const { isLogged, user, logout } = this.props;
     const { image } = user;
+    
     if (isLogged) {
       return (
-      <div className="navbar">
-        <div className="row navbar-inner">
-          <Sidebar />
-          <p>menu</p>
-          <img className="img-profile" src={image} alt=""/>
+        <div className="navbar">
+          <div className="row navbar-inner">
+            <Sidebar />
+            <p>menu</p>
+            <Link to="/myprofile">
+              <img className="img-profile" src={image} alt="" />
+            </Link>
+          </div>
         </div>
-      </div>
       )
     } else {
       return <div></div>
     }
-  
+
   }
 }
 
