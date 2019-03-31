@@ -48,7 +48,7 @@ class FormEditUser extends Component {
          return "cargando..."
          case true:
          return(
-            <div>
+            <div className="main-section">
                <p>Hola</p>
             <form onSubmit={this.handleUpdateUser}>
                <input onChange={this.handleInput} type="text" name="location"  value={location} placeholder="location"/>

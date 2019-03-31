@@ -35,7 +35,7 @@ class FormCreateAuction extends Component {
     const {name, description, image, StartingPrice, EndingTime, status} = this.state;
     
       return (
-        <div>
+        <div className="main-section">
           <form onSubmit={this.handleCreate}>
             <input onChange={this.handleInput} type="text" name="name"  value={name} placeholder="name"/>
             <input onChange={this.handleInput} type="text" name="description"  value={description} placeholder="description"/>

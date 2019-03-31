@@ -3,9 +3,12 @@ import MainButton from './MainButton';
 
 class Home extends Component {
   render() {
-    return (
-      <div>
-        <MainButton text="Already have an account?"/>
+    return (  
+      <div className="hero">
+        <div className="row hero-inner">
+          <h1>Auction</h1>
+          <MainButton text="Already have an account?"/>
+        </div>
       </div>
     );
   }

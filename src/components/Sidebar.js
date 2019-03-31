@@ -39,7 +39,7 @@ class Sidebar extends Component {
                      <a href="">Auction</a>
                   </li>
                   <li>
-                     <button onClick="{logout}">Logout</button>
+                     <button onClick={logout}>Logout</button>
                   </li>
             
                </ul>

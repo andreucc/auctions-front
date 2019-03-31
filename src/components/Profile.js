@@ -31,7 +31,7 @@ class Profile extends Component {
       return "Cargando..."
       case true:
       return (
-        <div>
+        <div className="main-section">
           <ProfileHeader 
             name={this.state.profile.username}
             sitio={this.state.profile.location}
