@@ -10,6 +10,7 @@ const config = {
   storageBucket: "ironauction-98f23.appspot.com",
   messagingSenderId: "517800130180"
 };
+firebase.initializeApp(config);
 
 ReactDOM.render(
   <Router>
