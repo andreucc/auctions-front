@@ -23,6 +23,11 @@ html {
    list-style: none;
  }
 
+ section{
+   margin-top: 70px;
+   height: 90vh;
+ }
+
  /* --- All ---*/
  .row{
    margin: 0 auto;
