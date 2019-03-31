@@ -11,9 +11,15 @@ class ProfilePage extends Component {
     progress: 0,
     avatarURL: ''
   };
-  handleChangeUsername = (event) => this.setState({ username: event.target.value });
-  handleUploadStart = () => this.setState({ isUploading: true, progress: 0 });
-  handleProgress = (progress) => this.setState({ progress });
+  handleUploadStart = () => this.setState(
+    { 
+      isUploading: true,
+      progress: 0 
+    });
+  handleProgress = (progress) => this.setState(
+    { 
+      progress
+    });
 
   handleUploadError = (error) => {
     this.setState({ isUploading: false });
