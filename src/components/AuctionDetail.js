@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import apiService from '../lib/api-service'
 import { withAuth } from '../components/AuthProvider';
+import {Link} from 'react-router-dom'
 
 class AuctionDetail extends Component {
   
@@ -40,10 +41,17 @@ class AuctionDetail extends Component {
       })
     }
     
+    handleDelete = () => {
+      const id = this.state.id
+      apiService.deleteAuction(id)
+      .then((data) => {
+        console.log(data);
+      })
+    }
+
   render() {
     const {image, name, price, imageBuyer, nameBuyer, locationBuyer, owner, description} = this.state
     const { user } = this.props
-    console.log(user._id, owner)
     return (
       <div className="card">
         <div>
@@ -60,7 +68,7 @@ class AuctionDetail extends Component {
         </div>
         <div>
           {user._id === owner ? 
-            <button>Delete Auction</button>
+            <Link to={`/myprofile`}><button onClick={this.handleDelete}>Delete Auction</button></Link>
           : null
           }
         </div>

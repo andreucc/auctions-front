@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import AuctionCard from './AuctionCard';
-import TabButtons from './TabButtons';
 import apiService from '../lib/api-service'
 
 class AuctionList extends Component {
@@ -33,7 +32,6 @@ class AuctionList extends Component {
         return ( 
           <div className="main-section">
             <div className="row">
-              <TabButtons />
               <ul>
                 {this.state.auctions.map((auction, index) => {
                   return <AuctionCard

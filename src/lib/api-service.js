@@ -33,9 +33,19 @@ class ApiService {
       .then(({ data }) => data);
   }
 
+  getMyFinishedAuctions() {
+    return this.api.get('/api/auctions/me/finsihed')
+      .then(({ data }) => data);
+  }
+
   getAuctionDetail(id) {
     return this.api.get(`/api/auction/${id}`)
       .then(({ data }) => data.data)
+  }
+
+  deleteAuction(id) {
+    return this.api.delete(`/api/auction/${id}`)
+    .then(({ data }) => data.data)
   }
 }
 
