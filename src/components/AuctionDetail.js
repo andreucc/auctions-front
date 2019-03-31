@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import apiService from '../lib/api-service'
+import { withAuth } from '../components/AuthProvider';
 
 class AuctionDetail extends Component {
   
@@ -11,7 +12,9 @@ class AuctionDetail extends Component {
     status: false,
     imageBuyer: '',
     locationBuyer: '',
-    nameBuyer: ''
+    nameBuyer: '',
+    owner: '',
+    description: ''
   }
   
   componentDidMount() 
@@ -21,12 +24,14 @@ class AuctionDetail extends Component {
       .then((data) => {
         console.log(data);
         this.setState({
-          image: data.data[0].service.image,
-          name: data.data[0].service.name,
-          price: data.data[0].price,
-          imageBuyer: data.data[0].buyer.image,
-          locationBuyer: data.data[0].buyer.location,
-          nameBuyer: data.data[0].buyer.name,
+          image: data[0].service.image,
+          name: data[0].service.name,
+          price: data[0].price,
+          imageBuyer: data[0].buyer.image,
+          locationBuyer: data[0].buyer.location,
+          nameBuyer: data[0].buyer.name,
+          owner: data[0].service.owner,
+          description: data[0].service.description,
           status: true
         })
       })
@@ -34,15 +39,18 @@ class AuctionDetail extends Component {
         console.log(err);
       })
     }
-
+    
   render() {
-    const {image, name, price, imageBuyer, nameBuyer, locationBuyer} = this.state
+    const {image, name, price, imageBuyer, nameBuyer, locationBuyer, owner, description} = this.state
+    const { user } = this.props
+    console.log(user._id, owner)
     return (
       <div className="card">
         <div>
           <p>Timer</p>
           <img src={image} alt="img"/>
           <h3>{name}</h3>
+          <p>{description}</p>
           <span>{price}€</span>
         </div>
         <div>
@@ -50,9 +58,15 @@ class AuctionDetail extends Component {
           <h4>{nameBuyer}</h4>
           <p>{locationBuyer}</p>
         </div>
+        <div>
+          {user._id === owner ? 
+            <button>Delete Auction</button>
+          : null
+          }
+        </div>
       </div>
     );
   }
 }
 
-export default AuctionDetail;
+export default withAuth(AuctionDetail);
