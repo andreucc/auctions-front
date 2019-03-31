@@ -33,7 +33,15 @@ componentDidMount()
   .catch((err) => {
     console.log(err);
   })
+}
 
+show1 = () => {
+  document.getElementById('finished').style.display = 'none';
+  document.getElementById('active').style.display = 'block';
+}
+show2 = () => {
+  document.getElementById('finished').style.display = 'block';
+  document.getElementById('active').style.display = 'none';
 }
 
   render() {
@@ -46,10 +54,10 @@ componentDidMount()
       return (
       <div className="main-section">
         <div className="tabs-container">
-          <button className="btn-tabs active">Auction</button>
-          <button className="btn-tabs">My auction</button>
+          <button className="btn-tabs active" onClick={this.show1}>Auction</button>
+          <button className="btn-tabs" onClick={this.show2}>Finished auctions</button>
         </div>
-          <div className="active">
+          <div id="active">
                 {this.state.auctions.map((auction, index) => {
                   return <AuctionCard 
                     key={`id-${index}`}
@@ -65,7 +73,7 @@ componentDidMount()
                 })
                 }
           </div>
-          <div className="finished">       
+          <div id="finished">       
                 {this.state.finishedAuctions.map((auction, index) => {
                   return <AuctionCard 
                     key={`id-${index}`}

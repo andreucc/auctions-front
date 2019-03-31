@@ -38,6 +38,11 @@ class ApiService {
       .then(({ data }) => data);
   }
 
+  getMyBidAuctions () {
+    return this.api.get('/api/auctions/me/bind')
+    .then(({ data }) => data);
+  }
+
   getAuctionDetail(id) {
     return this.api.get(`/api/auction/${id}`)
       .then(({ data }) => data.data)

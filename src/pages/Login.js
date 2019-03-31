@@ -31,12 +31,18 @@ class Login extends Component {
             <p>Login</p>
           </div>
         </div>
-        <section>
-          <form onSubmit={this.handleFormSubmit}>
-            <label>Username:</label>
-            <input type="text" name="username" value={username} onChange={this.handleChange}/>
-            <label>Password:</label>
-            <input type="password" name="password" value={password} onChange={this.handleChange} />
+        <section className="form-section">
+          <form className="user-form" onSubmit={this.handleFormSubmit}>
+            <div>
+              <div className="field">
+                <label>Username:</label>
+                <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username"/>
+              </div>
+              <div className="field">
+                <label>Password:</label>
+                <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" />
+              </div>
+            </div>
             <input className="btn btn-primary" type="submit" value="Login" />
           </form>
         </section>

@@ -283,6 +283,44 @@ html {
 }
 
 /* ---- Forms ---- */
+.form-section {
+  display: flex;  
+}
+
+
+.form-section .user-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-section .user-form .field {
+  margin-bottom: 20px;
+}
+
+.form-section .user-form .field input{
+  background-color: #F8F8F8;
+  border: 0;
+  padding: 16px 10px;
+  border-radius: 50px;
+}
+
+.form-section .user-form .field input::placeholder{
+  color:#8B959E;
+}
+
+.form-section .user-form .field label{
+  display: block;
+  margin-bottom: 8px;
+}
+
+.field {
+
+}
+
+
 
 /* ---- Auction Card ---- */
 .card {

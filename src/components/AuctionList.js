@@ -31,6 +31,12 @@ class AuctionList extends Component {
       case true:
         return ( 
           <div className="main-section">
+        
+          <div className="tabs-container">
+            <button className="btn-tabs active" onClick={this.show1}>Auction</button>
+            <button className="btn-tabs" onClick={this.show2}>My Auctions</button>
+          </div>
+          
             <div className="row">
               <ul>
                 {this.state.auctions.map((auction, index) => {
