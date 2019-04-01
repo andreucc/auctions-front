@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import apiService from '../lib/api-service';
 import firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
+
 
 
 
@@ -11,8 +13,9 @@ class FormCreateAuction extends Component {
     description: '',
     image: '',
     StartingPrice: '',
+    EndingDate: '', 
     EndingTime: '',
-    status: '',
+    status: true,
     isUploading: false,
     progress: 0
   }
@@ -28,28 +31,31 @@ class FormCreateAuction extends Component {
   handleCreate = (event) => {
     event.preventDefault();
     
-    const {name, description, image, StartingPrice, EndingTime, status } = this.state;
-    const body = {name, description, image, StartingPrice, EndingTime, status };
-    console.log(body)      
-    apiService.createAuction(body)
+    const {name, description, image, StartingPrice,EndingDate, EndingTime, status } = this.state;
+    const Ends = EndingDate + ' ' + EndingTime;
+    console.log(EndingDate);
+    const body = {name, description, image, StartingPrice, Ends, status };
+    console.log(body);      
+    apiService.createAuction(body);
   }
 
   handleUploadSuccess = (filename) => {
     console.log(firebase.storage().ref('autionImages'));
-    this.setState(
-      {
+    this.setState({
         image: filename,
         progress: 100,
         isUploading: false
-      });
+    });
+
     firebase.storage().ref('auctionImages').child(filename)
         .getDownloadURL()
           .then(url => this.setState({ image: url }));
   };
+
   render() {
 
-    const {name, description, image, StartingPrice, EndingTime, status} = this.state;
-    
+    const {name, description, image, StartingPrice, EndingTime} = this.state;
+      
       return (
         <div className="main-section">
           <form onSubmit={this.handleCreate}>
@@ -67,9 +73,12 @@ class FormCreateAuction extends Component {
               onProgress={this.handleProgress}
             />
             <input onChange={this.handleInput} type="number" name="StartingPrice"  value={StartingPrice} placeholder="StartingPrice"/>
-            <input onChange={this.handleInput} type="text" name="EndingTime"  value={EndingTime} placeholder="EndingTime"/>
-            <input onChange={this.handleInput} type="text" name="status"  value={status} placeholder="status"/>
-            <button type="submit">Create Auction</button>
+            End Date:<input type="date" name="EndingDate"/>
+            End Time:<input type="time" name="EndingTime"/>
+            
+            <Link to={"/auctions"}>
+                <button type="submit">Create Auction</button>
+            </Link>
           </form>
           
         </div>

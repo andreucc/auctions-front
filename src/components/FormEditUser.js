@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import apiService from '../lib/api-service';
 import firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class FormEditUser extends Component {
