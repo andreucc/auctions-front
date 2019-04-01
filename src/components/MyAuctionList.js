@@ -52,7 +52,7 @@ show2 = () => {
       return "cargando"
       case true:
       return (
-      <div className="main-section">
+      <div>
         <div className="tabs-container">
           <button className="btn-tabs active" onClick={this.show1}>Auction</button>
           <button className="btn-tabs" onClick={this.show2}>Finished auctions</button>

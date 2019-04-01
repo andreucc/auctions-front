@@ -16,7 +16,6 @@ class AuctionCard extends Component {
             <div className="img-profile">
               <img src={this.props.userimage} alt="imguser" />
             </div>
-
             <h4>{this.props.buyername}</h4>
           </div>
           <p className="location">{this.props.buyerlocation}</p>

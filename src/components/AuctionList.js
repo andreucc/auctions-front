@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './Navbar';
 import AuctionCard from './AuctionCard';
 import apiService from '../lib/api-service'
 
@@ -30,30 +31,33 @@ class AuctionList extends Component {
         return "cargando"
       case true:
         return ( 
-          <div className="main-section">
-        
-          <div className="tabs-container">
-            <button className="btn-tabs active" onClick={this.show1}>Auction</button>
-            <button className="btn-tabs" onClick={this.show2}>My Auctions</button>
-          </div>
+          <div>
+            <Navbar data='data'/>
+            <div className="main-section">
           
             <div className="row">
-              <ul>
-                {this.state.auctions.map((auction, index) => {
-                  return <AuctionCard
-                    key={`id-${index}`}
-                    id={auction.service._id}
-                    image={auction.service.image}
-                    name={auction.service.name}
-                    owner={auction.service.owner}
-                    price={auction.price}
-                    userimage={auction.buyer.image}
-                    buyername={auction.buyer.username}
-                    buyerlocation={auction.buyer.location}
-                  />
-                })
-                }
-              </ul>
+              <div className="tabs-container">
+                <button className="btn-tabs active" onClick={this.show1}>Auction</button>
+                <button className="btn-tabs" onClick={this.show2}>My Auctions</button>
+              </div>
+            
+                <ul>
+                  {this.state.auctions.map((auction, index) => {
+                    return <AuctionCard
+                      key={`id-${index}`}
+                      id={auction.service._id}
+                      image={auction.service.image}
+                      name={auction.service.name}
+                      owner={auction.service.owner}
+                      price={auction.price}
+                      userimage={auction.buyer.image}
+                      buyername={auction.buyer.username}
+                      buyerlocation={auction.buyer.location}
+                    />
+                  })
+                  }
+                </ul>
+              </div>
             </div>
           </div>
         );

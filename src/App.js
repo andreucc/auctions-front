@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Switch} from 'react-router-dom'
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 // import Private from './pages/Private';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
@@ -15,6 +15,9 @@ import FormCreateAuction from './components/FormCreateAuction';
 import MyAuctionList from './components/MyAuctionList';
 import './App.css'
 import AuctionDetail from './components/AuctionDetail';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faIgloo } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -23,7 +26,7 @@ class App extends Component {
   render() {
     return (
       <AuthProvider>
-        <Navbar data='data' />
+        {/* <Navbar data='data'/> */}
           <Switch>
             <AnonRoute exact path="/" component={Home}/>
             <AnonRoute path="/signup" component={Signup} />

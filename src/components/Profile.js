@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import NavbarProfile from './NavbarProfile'
 import ProfileHeader from './ProfileHeader'
 import MyAuctionList from './MyAuctionList'
 import apiService from '../lib/api-service'
@@ -31,15 +32,23 @@ class Profile extends Component {
       return "Cargando..."
       case true:
       return (
-        <div className="main-section">
-          <ProfileHeader 
-            name={this.state.profile.username}
-            sitio={this.state.profile.location}
-            image={this.state.profile.image}
-            id={this.state.profile.id}
-          /> 
-          <MyAuctionList />
-        </div>
+        <div>
+          <NavbarProfile/>
+          <div className="row"> 
+            <div className="main-section">
+                <ProfileHeader 
+                  name={this.state.profile.username}
+                  sitio={this.state.profile.location}
+                  image={this.state.profile.image}
+                  id={this.state.profile.id}
+                />
+                <MyAuctionList />
+              </div>
+            </div>
+            <div className="buttons-bottom">
+              <a className="btn btn-primary" href="/auction/create">Create auction</a>
+            </div>
+          </div>
       );
     default:
     }
