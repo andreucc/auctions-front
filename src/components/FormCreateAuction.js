@@ -29,7 +29,7 @@ class FormCreateAuction extends Component {
     event.preventDefault();
     
     const {name, description, image, StartingPrice, EndingTime, status } = this.state;
-    const body = {name, description, image, StartingPrice}  //  EndingTime, status 
+    const body = {name, description, image, StartingPrice, EndingTime, status };
     console.log(body)      
     apiService.createAuction(body)
   }
