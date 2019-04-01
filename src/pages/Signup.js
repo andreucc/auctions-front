@@ -49,7 +49,7 @@ class Signup extends Component {
           <p>Already have account? 
             <Link to={"/login"}> Login</Link>
           </p>
-      </section>
+        </section>
       </div>
     )
   }

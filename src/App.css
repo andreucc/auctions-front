@@ -1,9 +1,10 @@
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
 /* ---- reset ---- */
-
-
 html {
    box-sizing: border-box;
+   font-family: 'Lato', sans-serif;
  }
  *, *:before, *:after {
    box-sizing: inherit;
@@ -63,6 +64,8 @@ html {
 
 .buttons-bottom {
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 
 .buttons-bottom.form p{
@@ -286,7 +289,7 @@ html {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  align-items: stretch;
+  align-items: center;
   width: 100%;
 }
 
@@ -315,9 +318,10 @@ html {
 .form-section .user-form .container-fields .field input{
   background-color: #F8F8F8;
   border: 0;
-  padding: 16px 10px;
+  padding: 16px;
   border-radius: 50px;
   width: 100%;
+  font-size: 0.9em;
 }
 
 .form-section .user-form .container-fields .field input::placeholder{
