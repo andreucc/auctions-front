@@ -48,9 +48,7 @@ class Login extends Component {
             </div>
             <div className="buttons-bottom form">
               <input className="btn btn-primary" type="submit" value="Login" />
-              <p>Don't have you acount? 
-               <Link to={"/signup"}>Signup</Link>
-              </p>
+              <p>Don't have you acount? <Link to={"/signup"}> Signup</Link></p>
             </div>
           </form>
         </section>
