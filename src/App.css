@@ -50,7 +50,7 @@ html {
    border-radius: 8px;
    border: 0;
    padding: 15px 0;
-   width: 90%;
+   width: 92%;
    font-size: 1em;
    text-align: center;
    margin: 0 auto;
@@ -58,12 +58,16 @@ html {
 }
 
 .btn-primary{
+   font-weight: bold;
    color: #ffffff;
    background: #24c3b6; /* Old browsers */
    background: -moz-linear-gradient(left, #24c3b6 0%, #38d890 100%); /* FF3.6-15 */
    background: -webkit-linear-gradient(left, #24c3b6 0%,#38d890 100%); /* Chrome10-25,Safari5.1-6 */
    background: linear-gradient(to right, #24c3b6 0%,#38d890 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#24c3b6', endColorstr='#38d890',GradientType=1 ); /* IE6-9 */
+   -webkit-box-shadow: -1px 4px 11px -4px rgba(0,0,0,0.46);
+   -moz-box-shadow: -1px 4px 11px -4px rgba(0,0,0,0.46);
+   box-shadow: -1px 4px 11px -4px rgba(0,0,0,0.46);
 }
 
 .buttons-bottom {
@@ -71,6 +75,10 @@ html {
   position: fixed;
   bottom: 0;
   padding-bottom: 20px;
+}
+
+.buttons-bottom a{
+  text-decoration: none;
 }
 
 .buttons-bottom.form p{
@@ -97,12 +105,13 @@ html {
 }
 
 .tabs-container .btn-tabs{
-   border-radius: 50px;
-   border: 0;
-   padding: 12px 0;
-   width: 47%;
-   color: #8A9197;
-   background-color: #E8E8E8;
+  font-size: 0.8em;
+  border-radius: 50px;
+  border: 0;
+  padding: 12px 0;
+  width: 47%;
+  color: #8A9197;
+  background-color: #E8E8E8;
 }
 
 
@@ -319,10 +328,16 @@ html {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 68px; 
 }
 
 .form-section .user-form .container-fields {
   width: 100%;
+}
+
+.form-section .user-form .container-fields.auction {
+  /* margin: 120px 0 80px 0; */
+  margin: 180px 0 80px 0;
 }
 
 .form-section .user-form .container-fields .field {
@@ -331,6 +346,7 @@ html {
 
 .form-section .user-form .container-fields .field input{
   background-color: #F8F8F8;
+  color: #4e4e4e;
   border: 0;
   padding: 16px;
   border-radius: 50px;
@@ -344,7 +360,8 @@ html {
 
 .form-section .user-form .container-fields .field label{
   display: block;
-  margin-bottom: 8px;
+  margin: 12px;
+  font-weight: bold;
 }
 
 /* ---- Auction Card ---- */
@@ -357,6 +374,10 @@ html {
   -webkit-box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.53);
   -moz-box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.53);
   box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.18);
+}
+
+.card:last-child{
+  margin-bottom: 90px; 
 }
 
 .card .img-container {
@@ -380,6 +401,8 @@ html {
   color: #ffffff;
   font-size: 1.2em;
   margin: 15px;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.4);
+  line-height: 1.6em;
 }
 
 .card .img-container .current-price {
@@ -387,7 +410,7 @@ html {
   top: 0;
   right: 0;
   background-color: #ffffff;
-  color: #38D890;
+  color: #3B0CE8;
   border-radius: 20px;
   padding: 5px 12px;
   font-size: 1.2em;

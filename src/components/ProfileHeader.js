@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+
 class ProfileHeader extends Component {
   render() {
     return (
@@ -8,11 +8,10 @@ class ProfileHeader extends Component {
           <h2>{this.props.name}</h2>
           <p>{this.props.sitio}</p>
         </div>
-        <Link to={`/user/{this.props.id}/edit`}>
-          <div className="img-profile">
-            <img src={this.props.image} alt="profile"/>
-          </div>
-        </Link>
+        <div className="img-profile">
+          <img src={this.props.image} alt="profile"/>
+        </div>
+      
       </div>
     );
   }

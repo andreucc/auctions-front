@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from './AuthProvider';
-import Sidebar from './/Sidebar'
+import Sidebar from './Sidebar'
 
 class NavbarProfile extends Component {
    render() {
@@ -13,7 +13,7 @@ class NavbarProfile extends Component {
             <div className="row navbar-inner">
               <Sidebar />
               <p>My Profile</p>
-              <Link to="//user/:id/edit">
+              <Link to="/user/:id/edit">
                   <span className="icon-pencil"></span>
               </Link>
             </div>

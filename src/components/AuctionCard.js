@@ -6,7 +6,7 @@ class AuctionCard extends Component {
     return (
       <li className="card">
         <div className="img-container">
-          <p>Timer</p>
+          <p>00:00:00</p>
           <Link to={`/auction/${this.props.id}`}><img src={this.props.image} alt="imgservice" /></Link>
           <h3>{this.props.name}</h3>
           <span className="current-price">{this.props.price}€</span>
