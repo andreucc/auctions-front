@@ -91,13 +91,16 @@ class AuctionDetail extends Component {
                 </div>  
                 <p>{description}</p>
                 <div className="bidder-info">
-                  <div className="image">
-                    <img src={imageBuyer} alt="img"/>
-                  </div>
                   <div className="text">
-                    <p>Highther bit</p>
-                    <h4>{nameBuyer}</h4>
+                    <div className="image">
+                      <img src={imageBuyer} alt="img"/>
+                    </div>
+                    <div className="name">
+                      <p>Highther bit</p>
+                      <h4>{nameBuyer}</h4>
+                    </div>
                   </div>
+                  <h3>{price}€</h3>
                 </div>
             </div>
           </div>
