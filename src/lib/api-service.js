@@ -34,13 +34,18 @@ class ApiService {
   }
 
   getMyFinishedAuctions() {
-    return this.api.get('/api/auctions/me/finsihed')
+    return this.api.get('/api/auctions/me/finished')
       .then(({ data }) => data);
   }
 
   getMyBidAuctions () {
     return this.api.get('/api/auctions/me/bind')
     .then(({ data }) => data);
+  }
+
+  createBid (body) {
+    return this.api.post('/api/bid/create', body)
+    .then(({ data }) => data)
   }
 
   getAuctionDetail(id) {
