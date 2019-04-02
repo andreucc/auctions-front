@@ -52,7 +52,9 @@ class FormEditUser extends Component {
       const { id, username, location, mobile, image } = this.state;
       const body = { username, image, mobile, location }
       console.log(body)
-      apiService.updateProfile(id, body)
+      apiService.updateProfile(id, body).then(()=>{
+         this.props.history.push('/myprofile')
+       })
    }
 
    handleInput = (event) => {
@@ -105,7 +107,7 @@ class FormEditUser extends Component {
                            </div>
                            {/* <input type="submit" value="submit"/> */}
                            <div className="buttons-bottom">
-                              <Link to="/auctions"><button className="btn btn-primary" type="submit">Update</button></Link>
+                              <button className="btn btn-primary" type="submit">Update</button>
                            </div>
                           
                            
