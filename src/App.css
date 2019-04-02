@@ -70,6 +70,12 @@ html {
    box-shadow: -1px 4px 11px -4px rgba(0,0,0,0.46);
 }
 
+.btn-danger{
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #E46C6C;
+}
+
 .buttons-bottom {
   width: 100%;
   position: fixed;
@@ -132,7 +138,6 @@ html {
 }
 
 /* --- Menu toggle --- */
-
 #menuToggle{
    display: block;
    z-index: 1;
@@ -307,7 +312,6 @@ html {
 }
 
 /* ---- Hero ---- */
-
 .hero {
   background: url(./images/splash-img.png) no-repeat;
   background-size: cover;
@@ -464,7 +468,6 @@ html {
 /* ---- Auction list ---- */
 
 /* ---- Auction detail ---- */
-
 .detail .top-content{
   position: relative;
 }
@@ -504,6 +507,7 @@ html {
   position: relative;
   top: -50px;
   padding: 20px;
+  margin-bottom: 30px; 
   border-radius: 28px 28px 0 0;
 }
 
@@ -530,6 +534,7 @@ html {
 
 .detail .owner-info .info h4{
   margin-left: 10px;
+  text-transform: capitalize;
 }
 
 .detail .owner-info .info .image{
@@ -549,18 +554,22 @@ html {
   border: 1px solid #E9E9E9;
   padding: 16px;
   display:  flex;
+  align-items: center;
 }
 
 .detail .bidder-info .text{
-  margin-left: 10px; 
+  margin-left: 16px; 
 }
 
 .detail .bidder-info .text p{
-  margin: 0; 
+  margin: 0 0 5px 0; 
+  color: #24C3B6;
 }
 
 .detail .bidder-info .text h4{
-  margin: 0; 
+  margin: 0;
+  text-transform: capitalize;
+  font-size: 1.2em;
 }
 
 .detail .bidder-info .image{
@@ -578,7 +587,6 @@ html {
 
 
 /* --- Profile --- */
-
 .profile-header{
   display: flex;
   align-items: center;

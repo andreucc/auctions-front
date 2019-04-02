@@ -104,7 +104,7 @@ class AuctionDetail extends Component {
         </div>
         <div className="buttons-bottom">
           {user._id === owner ? 
-            <Link to={`/myprofile`}><button className="btn btn-primary" onClick={this.handleDelete}>Delete Auction</button></Link>
+            <Link to={`/myprofile`}><button className="btn btn-danger" onClick={this.handleDelete}>Delete Auction</button></Link>
           : <Link to={`/bid/create/${this.state.id}`}><button className="btn btn-primary" >Bid UP</button></Link>  
           }
         </div>
