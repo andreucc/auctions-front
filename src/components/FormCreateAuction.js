@@ -34,7 +34,7 @@ class FormCreateAuction extends Component {
     
     const {name, description, image, StartingPrice,EndingDate, EndingTime, status } = this.state;
     const Ends = EndingDate + ' ' + EndingTime;
-    console.log(EndingDate);
+    console.log('handleCreate...Ends:'+Ends+EndingDate+EndingTime);
     const body = {name, description, image, StartingPrice, Ends, status };
     console.log(body);      
     apiService.createAuction(body);
@@ -57,13 +57,15 @@ class FormCreateAuction extends Component {
 
     //const {name, description, image, StartingPrice, EndingTime} = this.state;
      
-    const {name, description, image, StartingPrice} = this.state;
-    let {EndingDate, EndingTime} = this.state;
+    const {name, description, image, StartingPrice, EndingDate, EndingTime} = this.state;
+    // let {EndingDate, EndingTime} = this.state;
     const now = moment();
     const today = now.format('YYYY-MM-DD');
     const maxDate = now.add(1, 'months').format('DD-MM-YYYY');
-    EndingDate = now.add(3, 'days').format('YYYY-MM-DD');
-    EndingTime= now.format('HH:mm:ss');
+    // EndingDate = now.add(3, 'days').format('YYYY-MM-DD');
+    // EndingTime= now.format('HH:mm:ss');
+    const defaultDate = now.add(3, 'days').format('YYYY-MM-DD');
+    const defaultTime= now.format('HH:mm:ss');
 
       return (
         <div>
@@ -99,16 +101,19 @@ class FormCreateAuction extends Component {
                       <input onChange={this.handleInput} type="number" name="StartingPrice"  value={StartingPrice} placeholder="StartingPrice"/>
                     </div>
                     <div className="field">
-                      <label>Expiry time</label>
-                      <input onChange={this.handleInput} type="text" name="EndingTime"  value={EndingTime} placeholder="EndingTime"/>
-                      End Date:<input type="date" value={EndingDate} min={today} max={maxDate} name="EndingDate"/>
-                      End Time:<input type="time" value= {EndingTime} name="EndingTime"/>
-
+                      {/* <label>Expiry time</label>
+                      <input onChange={this.handleInput} type="text" name="EndingTime"  value={EndingTime} placeholder="EndingTime"/> */}
+                      <label>End Date</label>
+                      <input type="date" defaultValue={defaultDate} min={today} max={maxDate} name="EndingDate"/>
+                      <label>End Time</label>
+                      <input type="time" defaultValue= {defaultTime} name="EndingTime"/>
                     </div>
+                    {/*
                     <div className="field last">
-                     {/* <label>Status</label>   */}
-                      {/* <input onChange={this.handleInput} type="text" name="status"  value={status} placeholder="Status"/> */}
-                    </div>
+                      <label>Status</label>  
+                       <input onChange={this.handleInput} type="text" name="status"  value={status} placeholder="Status"/>
+                    </div> 
+                    */}
                 </div>
                 <div className="buttons-bottom">
                   <button className="btn btn-primary" type="submit">Create Auction</button>
