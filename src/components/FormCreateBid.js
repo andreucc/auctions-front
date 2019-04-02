@@ -15,7 +15,7 @@ class FormCreateBid extends Component {
       .then((data) => {
         console.log(data);
         this.setState({
-          price: data[0].price,
+          price: data.auction[0].price,
         })
       })
       .catch((err) => {
