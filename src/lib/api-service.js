@@ -34,7 +34,7 @@ class ApiService {
   }
 
   getMyFinishedAuctions() {
-    return this.api.get('/api/auctions/me/finsihed')
+    return this.api.get('/api/auctions/me/finished')
       .then(({ data }) => data);
   }
 
