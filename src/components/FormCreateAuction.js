@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 import firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
 import moment from 'moment';
-
+import { Link } from 'react-router-dom';
 
 
 class FormCreateAuction extends Component {
@@ -112,6 +112,7 @@ class FormCreateAuction extends Component {
                 </div>
                 <div className="buttons-bottom">
                   <button className="btn btn-primary" type="submit">Create Auction</button>
+                  {/* <Link to={"/auctions"}><button type="submit">Create Auction</button></Link> */}
                 </div>
               </form>
             </section>

@@ -50,6 +50,14 @@ class AuctionDetail extends Component {
       })
     }
 
+    handleBidUp = () => {
+      const id = this.state.id
+      apiService.getAuctionDetail(id)
+      .then((data) => {
+        console.log(data);
+      })
+    }
+
   render() {
     const {image, name, price, imageBuyer, nameBuyer, locationBuyer, owner, description} = this.state
     const { user } = this.props
@@ -74,7 +82,7 @@ class AuctionDetail extends Component {
               <div>
                 {user._id === owner ? 
                   <Link to={`/myprofile`}><button onClick={this.handleDelete}>Delete Auction</button></Link>
-                : null
+                : <Link to={`/bid/create/${this.state.id}`}><button /*onClick={this.handleDelete}*/>Bid UP</button></Link>  
                 }
               </div>
             </div>

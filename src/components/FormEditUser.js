@@ -73,7 +73,7 @@ class FormEditUser extends Component {
                      <section className="form-section">
                         <form className="user-form" onSubmit={this.handleUpdateUser}>
                            <div className="container-fields">  
-                              <img className="display-none" src={this.state.image} alt="avatar" />
+                              <img className="display-none" src={image} alt="avatar" />
                               <div className="field">
                                  <label>Profile image</label> 
                                  <FileUploader
