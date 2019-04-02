@@ -105,6 +105,8 @@ class FormCreateAuction extends Component {
                       <input onChange={this.handleInput} type="text" name="EndingTime"  value={EndingTime} placeholder="EndingTime"/> */}
                       <label>End Date</label>
                       <input type="date" defaultValue={defaultDate} min={today} max={maxDate} name="EndingDate"/>
+                    </div>
+                    <div className="field">
                       <label>End Time</label>
                       <input type="time" defaultValue= {defaultTime} name="EndingTime"/>
                     </div>
