@@ -8,7 +8,8 @@ class MyAuctionList extends Component {
   state ={
     auctions: [],
     status: false,
-    finishedAuctions: [] 
+    finishedAuctions: [],
+    listActive: true 
   }
 
 componentDidMount()
@@ -35,25 +36,15 @@ componentDidMount()
   })
 }
 
-show1 = () => {
-  document.getElementById('finished').style.display = 'none';
-  document.getElementById('active').style.display = 'block';
-}
-show2 = () => {
-  document.getElementById('finished').style.display = 'block';
-  document.getElementById('active').style.display = 'none';
-}
-
-// activeTabs = (e) => {
-//   const elems = document.querySelectorAll('.active');
-//   [].forEach.call(elems, function (el) {
-//     el.classList.remove('active')
-//   })
-//   e.target.className = 'active'
-// }
+  showlists = () => {
+    console.log(this.state.listActive)
+    this.setState({
+      listActive: !this.state.listActive
+    })
+  }
 
   render() {
-    const {status} = this.state
+    const {status, listActive} = this.state
     console.log(this.state.auctions)
     switch (status) {
       case false:
@@ -62,9 +53,10 @@ show2 = () => {
       return (
       <div>
         <div className="tabs-container">
-          <button className="btn-tabs active" onClick={this.show1}>Auction</button>
-          <button className="btn-tabs" onClick={this.show2}>Finished auctions</button>
+          <button className="btn-tabs active" onClick={this.showlists}>Auction</button>
+          <button className="btn-tabs" onClick={this.showlists}>Finished auctions</button>
         </div>
+        {listActive === true ?
           <div id="active">
                 {this.state.auctions.map((auction, index) => {
                   return <AuctionCard 
@@ -80,8 +72,8 @@ show2 = () => {
                   />
                 })
                 }
-          </div>
-          <div id="finished">       
+          </div> 
+          : <div id="finished">       
                 {this.state.finishedAuctions.map((auction, index) => {
                   return <AuctionCard 
                     key={`id-${index}`}
@@ -96,7 +88,8 @@ show2 = () => {
                   />
                 })
                 } 
-          </div>      
+          </div>
+        }        
       </div>
     );
     default:
