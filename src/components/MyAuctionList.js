@@ -44,6 +44,14 @@ show2 = () => {
   document.getElementById('active').style.display = 'none';
 }
 
+// activeTabs = (e) => {
+//   const elems = document.querySelectorAll('.active');
+//   [].forEach.call(elems, function (el) {
+//     el.classList.remove('active')
+//   })
+//   e.target.className = 'active'
+// }
+
   render() {
     const {status} = this.state
     console.log(this.state.auctions)

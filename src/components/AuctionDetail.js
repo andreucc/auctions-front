@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './Navbar';
 import apiService from '../lib/api-service'
 import { withAuth } from '../components/AuthProvider';
 import {Link} from 'react-router-dom'
@@ -53,24 +54,31 @@ class AuctionDetail extends Component {
     const {image, name, price, imageBuyer, nameBuyer, locationBuyer, owner, description} = this.state
     const { user } = this.props
     return (
-      <div className="card">
-        <div>
-          <p>Timer</p>
-          <img src={image} alt="img"/>
-          <h3>{name}</h3>
-          <p>{description}</p>
-          <span>{price}€</span>
-        </div>
-        <div>
-          <img src={imageBuyer} alt="img"/>
-          <h4>{nameBuyer}</h4>
-          <p>{locationBuyer}</p>
-        </div>
-        <div>
-          {user._id === owner ? 
-            <Link to={`/myprofile`}><button onClick={this.handleDelete}>Delete Auction</button></Link>
-          : null
-          }
+      <div>
+        <Navbar/>
+        <div className="main-section">
+          <div className="detail">
+            <div className="top-content">
+              <p>Timer</p>
+              <img src={image} alt="img"/>
+              <span className="current-price">{price}€</span>
+            </div>
+            <div className="row bottom-content">
+              <h3>{name}</h3>
+              <div className="user-info">
+                <img src={imageBuyer} alt="img"/>
+                <h4>{nameBuyer}</h4>
+                <p>{locationBuyer}</p>
+              </div>
+                <p>{description}</p>
+              <div>
+                {user._id === owner ? 
+                  <Link to={`/myprofile`}><button onClick={this.handleDelete}>Delete Auction</button></Link>
+                : null
+                }
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -15,9 +15,6 @@ import FormCreateAuction from './components/FormCreateAuction';
 import MyAuctionList from './components/MyAuctionList';
 import './App.css'
 import AuctionDetail from './components/AuctionDetail';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faIgloo } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -26,7 +23,6 @@ class App extends Component {
   render() {
     return (
       <AuthProvider>
-        {/* <Navbar data='data'/> */}
           <Switch>
             <AnonRoute exact path="/" component={Home}/>
             <AnonRoute path="/signup" component={Signup} />

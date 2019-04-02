@@ -36,7 +36,7 @@ class AuctionList extends Component {
             <div className="main-section">
           
             <div className="row">
-              <div className="tabs-container">
+              <div className="tabs-container" onclick="activeTabs(event)">
                 <button className="btn-tabs active" onClick={this.show1}>Auction</button>
                 <button className="btn-tabs" onClick={this.show2}>My Auctions</button>
               </div>
