@@ -4,8 +4,8 @@ import apiService from '../lib/api-service';
 import Navbar from './Navbar'
 import firebase from 'firebase';
 import FileUploader from 'react-firebase-file-uploader';
-
-
+import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 
 class FormCreateAuction extends Component {
@@ -55,8 +55,16 @@ class FormCreateAuction extends Component {
 
   render() {
 
-    const {name, description, image, StartingPrice, EndingTime} = this.state;
-      
+    //const {name, description, image, StartingPrice, EndingTime} = this.state;
+     
+    const {name, description, image, StartingPrice} = this.state;
+    let {EndingDate, EndingTime} = this.state;
+    const now = moment();
+    const today = now.format('YYYY-MM-DD');
+    const maxDate = now.add(1, 'months').format('DD-MM-YYYY');
+    EndingDate = now.add(3, 'days').format('YYYY-MM-DD');
+    EndingTime= now.format('HH:mm:ss');
+
       return (
         <div>
         <Navbar data='data'/>
@@ -93,14 +101,18 @@ class FormCreateAuction extends Component {
                     <div className="field">
                       <label>Expiry time</label>
                       <input onChange={this.handleInput} type="text" name="EndingTime"  value={EndingTime} placeholder="EndingTime"/>
+                      End Date:<input type="date" value={EndingDate} min={today} max={maxDate} name="EndingDate"/>
+                      End Time:<input type="time" value= {EndingTime} name="EndingTime"/>
+
                     </div>
                     <div className="field last">
-                     <label>Status</label>  
+                     {/* <label>Status</label>   */}
                       {/* <input onChange={this.handleInput} type="text" name="status"  value={status} placeholder="Status"/> */}
                     </div>
                 </div>
                 <div className="buttons-bottom">
                   <button className="btn btn-primary" type="submit">Create Auction</button>
+                  {/* <Link to={"/auctions"}><button type="submit">Create Auction</button></Link> */}
                 </div>
               </form>
             </section>
