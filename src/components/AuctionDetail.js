@@ -16,7 +16,10 @@ class AuctionDetail extends Component {
     locationBuyer: '',
     nameBuyer: '',
     owner: '',
-    description: ''
+    description: '',
+    locationOwner: '',
+    imageOwner: '',
+    idAuction: ''
   }
   
   componentDidMount() 
@@ -26,15 +29,19 @@ class AuctionDetail extends Component {
       .then((data) => {
         console.log(data);
         this.setState({
-          image: data[0].service.image,
-          name: data[0].service.name,
-          price: data[0].price,
-          imageBuyer: data[0].buyer.image,
-          locationBuyer: data[0].buyer.location,
-          nameBuyer: data[0].buyer.name,
-          owner: data[0].service.owner,
-          description: data[0].service.description,
-          status: true
+          image: data.auction[0].service.image,
+          name: data.auction[0].service.name,
+          description: data.auction[0].service.description,
+          price: data.auction[0].price,
+          nameBuyer: data.auction[0].buyer.username,
+          imageBuyer: data.auction[0].buyer.image,
+          locationBuyer: data.auction[0].buyer.location,
+          owner: data.auction[0].service.owner,
+          ownerName: data.owner.username,
+          ownerImage: data.owner.image,
+          ownerLocation: data.owner.location,
+          status: true,
+          idAuction: data.auction[0]
         })
       })
       .catch((err) => {
@@ -59,7 +66,7 @@ class AuctionDetail extends Component {
     }
 
   render() {
-    const {image, name, price, imageBuyer, nameBuyer, locationBuyer, owner, description} = this.state
+    const {image, name, price, imageBuyer, nameBuyer, owner, description, ownerImage, ownerLocation, ownerName} = this.state
     const { user } = this.props
     return (
       <div>
@@ -75,16 +82,18 @@ class AuctionDetail extends Component {
               <h3>{name}</h3>
               <div className="user-info">
                 <div className="user-image">
-                  <img src={imageBuyer} alt="img"/>
-                  <h4>{nameBuyer}</h4>
+                  <img src={ownerImage} alt="img"/>
+                  <h4>{ownerName}</h4>
                 </div>
-                <p>{locationBuyer}</p>
+                <p>{ownerLocation}</p>
               </div>
                 <p>{description}</p>
+                <p>{nameBuyer}</p>
+                <img src={imageBuyer} alt="img"/>
               <div>
                 {user._id === owner ? 
                   <Link to={`/myprofile`}><button onClick={this.handleDelete}>Delete Auction</button></Link>
-                : <Link to={`/bid/create/${this.state.id}`}><button /*onClick={this.handleDelete}*/>Bid UP</button></Link>  
+                : <Link to={`/bid/create/${this.state.id}`}><button>Bid UP</button></Link>  
                 }
               </div>
             </div>
