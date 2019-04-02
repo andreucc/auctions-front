@@ -108,8 +108,16 @@ class AuctionDetail extends Component {
         <div className="buttons-bottom">
           {user._id === owner ? 
             <Link to={`/myprofile`}><button className="btn btn-danger" onClick={this.handleDelete}>Delete Auction</button></Link>
-          : <Link to={`/bid/create/${this.state.id}`}><button className="btn btn-primary" >Bid UP</button></Link>  
+            : <a href="#open-modal" className="btn btn-primary" >Bid UP</a>  
+            // : <Link to={`/bid/create/${this.state.id}`}><button className="btn btn-primary" >Bid UP</button></Link>  
           }
+        </div>
+        <div id="open-modal" className="modal-window">
+          <div>
+            <a href="#" title="Close" class="modal-close">Close</a>
+            <h1>Voilà!</h1>
+            <div>A CSS-only modal based on the :target pseudo-class. Hope you find it helpful.</div>
+            </div>
         </div>
       </div>
     );
