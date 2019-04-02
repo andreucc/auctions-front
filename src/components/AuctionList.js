@@ -34,13 +34,11 @@ class AuctionList extends Component {
           <div>
             <Navbar data='data'/>
             <div className="main-section">
-          
-            <div className="row">
-              <div className="tabs-container" onclick="activeTabs(event)">
-                <button className="btn-tabs active" onClick={this.show1}>Auction</button>
-                <button className="btn-tabs" onClick={this.show2}>My Auctions</button>
-              </div>
-            
+              <div className="row">
+                <div className="tabs-container" onclick="activeTabs(event)">
+                  <button className="btn-tabs active" onClick={this.show1}>Auction</button>
+                  <button className="btn-tabs" onClick={this.show2}>My Auctions</button>
+                </div>
                 <ul>
                   {this.state.auctions.map((auction, index) => {
                     return <AuctionCard

@@ -66,8 +66,10 @@ class AuctionDetail extends Component {
             <div className="row bottom-content">
               <h3>{name}</h3>
               <div className="user-info">
-                <img src={imageBuyer} alt="img"/>
-                <h4>{nameBuyer}</h4>
+                <div className="user-image">
+                  <img src={imageBuyer} alt="img"/>
+                  <h4>{nameBuyer}</h4>
+                </div>
                 <p>{locationBuyer}</p>
               </div>
                 <p>{description}</p>

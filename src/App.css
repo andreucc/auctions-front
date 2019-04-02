@@ -477,7 +477,13 @@ html {
 
 .detail .top-content p{
   position: absolute;
-  top: 10px;
+  margin-left: 15px;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  font-size: 1.4em;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.4);
+  line-height: 1.6em;
 }
 
 .detail .top-content .current-price{
@@ -497,13 +503,29 @@ html {
   background: #ffffff;
   position: relative;
   top: -50px;
+  padding: 20px;
   border-radius: 28px 28px 0 0;
 }
 
-.detail .top-content h3{
-  position: absolute;
-  bottom: 20px;
-  color: #ffffff;
+.detail .bottom-content h3{
+  margin: 10px 0 30px 0;
+}
+
+.detail .user-info{
+  display: flex;
+}
+
+.detail .user-info .user-image{
+  height: 47px;
+  width: 47px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.detail .user-info .user-image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* --- Profile --- */
