@@ -44,6 +44,14 @@ show2 = () => {
   document.getElementById('active').style.display = 'none';
 }
 
+// activeTabs = (e) => {
+//   const elems = document.querySelectorAll('.active');
+//   [].forEach.call(elems, function (el) {
+//     el.classList.remove('active')
+//   })
+//   e.target.className = 'active'
+// }
+
   render() {
     const {status} = this.state
     console.log(this.state.auctions)
@@ -52,7 +60,7 @@ show2 = () => {
       return "cargando"
       case true:
       return (
-      <div className="main-section">
+      <div>
         <div className="tabs-container">
           <button className="btn-tabs active" onClick={this.show1}>Auction</button>
           <button className="btn-tabs" onClick={this.show2}>Finished auctions</button>

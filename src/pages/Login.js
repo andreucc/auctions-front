@@ -39,7 +39,7 @@ class Login extends Component {
               <div className="container-fields">
                 <div className="field">
                   <label>Username:</label>
-                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username" />
+                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username"/>
                 </div>
                 <div className="field">
                   <label>Password:</label>

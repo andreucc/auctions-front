@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import apiService from '../lib/api-service';
 import firebase from 'firebase';
+import Navbar from './Navbar'
 import FileUploader from 'react-firebase-file-uploader';
 import { Link } from 'react-router-dom';
 
@@ -66,28 +67,51 @@ class FormEditUser extends Component {
             return "cargando..."
          case true:
             return (
-               <div className="main-section">
-                  <p>Hola</p>
-                  <form onSubmit={this.handleUpdateUser}>
-                     <img src={this.state.image} alt="avatar" />
-                     <input onChange={this.handleInput} type="text" name="location" value={location} placeholder="location" />
-                     <input onChange={this.handleInput} type="text" name="username" value={username} placeholder="username" />
-                     {/* <input type="password" value="" placeholder="password"/> */}
-                     <input onChange={this.handleInput} type="number" name="mobile" value={mobile} placeholder="mobile" />
-                     <FileUploader
-                        accept="image/*"
-                        name="image"
-                        randomizeFilename
-                        storageRef={firebase.storage().ref('userImages')}
-                        onUploadStart={this.handleUploadStart}
-                        onUploadError={this.handleUploadError}
-                        onUploadSuccess={this.handleUploadSuccess}
-                        onProgress={this.handleProgress}
-                     />
-                     {/* <input type="submit" value="submit"/> */}
-                     <Link to="/auctions"><button type="submit">Update</button></Link>
-                     
-                  </form>
+               <div>
+                  <Navbar data='data'/>
+                  <div className="row">
+                     <section className="form-section">
+                        <form className="user-form" onSubmit={this.handleUpdateUser}>
+                           <div className="container-fields">  
+                              <img className="display-none" src={this.state.image} alt="avatar" />
+                              <div className="field">
+                                 <label>Profile image</label> 
+                                 <FileUploader
+                                    accept="image/*"
+                                       name="image"
+                                       randomizeFilename
+                                       storageRef={firebase.storage().ref('userImages')}
+                                       onUploadStart={this.handleUploadStart}
+                                       onUploadError={this.handleUploadError}
+                                       onUploadSuccess={this.handleUploadSuccess}
+                                       onProgress={this.handleProgress}
+                                    />
+                              </div>
+                              <div className="field">
+                                 <label>Location</label>
+                                 <input onChange={this.handleInput} type="text" name="location" value={location} placeholder="location" />
+                              </div>
+                              <div className="field"> 
+                              <label>Username</label>  
+                                 <input onChange={this.handleInput} type="text" name="username" value={username} placeholder="username" />
+                              </div>
+                              <div className="field">
+                                 {/* <input type="password" value="" placeholder="password"/> */}
+                              </div>
+                              <div className="field">
+                                 <label>Mobile</label>  
+                                 <input onChange={this.handleInput} type="number" name="mobile" value={mobile} placeholder="mobile" />
+                              </div>
+                           </div>
+                           {/* <input type="submit" value="submit"/> */}
+                           <div className="buttons-bottom">
+                              <Link to="/auctions"><button className="btn btn-primary" type="submit">Update</button></Link>
+                           </div>
+                          
+                           
+                        </form>
+                     </section>
+                  </div>
                </div>
             )
          default:

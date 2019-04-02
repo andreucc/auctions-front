@@ -55,16 +55,16 @@ class Signup extends Component {
           <form className="user-form" onSubmit={this.handleFormSubmit}>
             <div className="container-fields">
               <div className="field">
-                <label>Username:</label>
+                <label>Username</label>
                 <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username"/>
               </div>
               <div className="field">
-                <label>Password:</label>
+                <label>Password</label>
                 <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" />
               </div>
             </div>
             <div className="buttons-bottom form">
-              <input className="btn btn-primary" type="submit" value="Login" />
+              <input className="btn btn-primary" type="submit" value="Signup" />
               <p>Already have account? 
               <Link to={"/login"}> Login</Link>
               </p>
