@@ -28,7 +28,6 @@ class FormCreateBid extends Component {
     const { id, price } = this.state;
     const body = {id, price}
     apiService.createBid(body).then(()=>{
-      console.log('eiii')
       this.props.history.push('/auctions')
     })
     
