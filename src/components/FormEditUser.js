@@ -3,7 +3,7 @@ import apiService from '../lib/api-service';
 import firebase from 'firebase';
 import Navbar from './Navbar'
 import FileUploader from 'react-firebase-file-uploader';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 
 class FormEditUser extends Component {
@@ -35,7 +35,6 @@ class FormEditUser extends Component {
    }
 
    handleUploadSuccess = (filename) => {
-      console.log(firebase.storage().ref('autionUser'));
       this.setState(
          {
             image: filename,

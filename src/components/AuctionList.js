@@ -26,7 +26,6 @@ class AuctionList extends Component {
 
   render() {
     const { status } = this.state
-    console.log(this.state.auctions)
     switch (status) {
       case false:
         return "cargando"
@@ -52,6 +51,7 @@ class AuctionList extends Component {
                       userimage={auction.buyer.image}
                       buyername={auction.buyer.username}
                       buyerlocation={auction.buyer.location}
+                      EndingTime={auction.service.EndingTime}
                     />
                   })
                   }
