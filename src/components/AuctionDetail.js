@@ -80,24 +80,33 @@ class AuctionDetail extends Component {
             </div>
             <div className="row bottom-content">
               <h3>{name}</h3>
-              <div className="user-info">
-                <div className="user-image">
-                  <img src={ownerImage} alt="img"/>
-                  <h4>{ownerName}</h4>
-                </div>
-                <p>{ownerLocation}</p>
-              </div>
+                <div class="owner-info">
+                  <div className="info">
+                    <div className="image">
+                      <img src={ownerImage} alt="img"/>
+                    </div>
+                    <h4>{ownerName}</h4>
+                  </div>
+                  <p>{ownerLocation}</p>
+                </div>  
                 <p>{description}</p>
-                <p>{nameBuyer}</p>
-                <img src={imageBuyer} alt="img"/>
-              <div>
-                {user._id === owner ? 
-                  <Link to={`/myprofile`}><button onClick={this.handleDelete}>Delete Auction</button></Link>
-                : <Link to={`/bid/create/${this.state.id}`}><button>Bid UP</button></Link>  
-                }
-              </div>
+                <div className="bidder-info">
+                  <div className="image">
+                    <img src={imageBuyer} alt="img"/>
+                  </div>
+                  <div className="text">
+                    <p>Highther bit</p>
+                    <h4>{nameBuyer}</h4>
+                  </div>
+                </div>
             </div>
           </div>
+        </div>
+        <div className="buttons-bottom">
+          {user._id === owner ? 
+            <Link to={`/myprofile`}><button className="btn btn-danger" onClick={this.handleDelete}>Delete Auction</button></Link>
+          : <Link to={`/bid/create/${this.state.id}`}><button className="btn btn-primary" >Bid UP</button></Link>  
+          }
         </div>
       </div>
     );
