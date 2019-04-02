@@ -14,14 +14,14 @@ class Login extends Component {
 
     this.props.login({ username, password })
       .then(() => {
-        this.props.history.push('/private')
+        this.props.history.push('/auctions')
       })
-      .catch( error => console.log(error) )
+      .catch(error => console.log(error))
   }
 
-  handleChange = (event) => {  
-    const {name, value} = event.target;
-    this.setState({[name]: value});
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -34,26 +34,24 @@ class Login extends Component {
           </div>
         </div>
         <div className="row">
-        <section className="form-section">
-          <form className="user-form" onSubmit={this.handleFormSubmit}>
-            <div className="container-fields">
-              <div className="field">
-                <label>Username:</label>
-                <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username"/>
+          <section className="form-section">
+            <form className="user-form" onSubmit={this.handleFormSubmit}>
+              <div className="container-fields">
+                <div className="field">
+                  <label>Username:</label>
+                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username"/>
+                </div>
+                <div className="field">
+                  <label>Password:</label>
+                  <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" />
+                </div>
               </div>
-              <div className="field">
-                <label>Password:</label>
-                <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" />
+              <div className="buttons-bottom form">
+                <input className="btn btn-primary" type="submit" value="Login" />
+                <p>Don't have you acount? <Link to={"/signup"}> Signup</Link></p>
               </div>
-            </div>
-            <div className="buttons-bottom form">
-              <input className="btn btn-primary" type="submit" value="Login" />
-              <p>Don't have you acount? 
-               <Link to={"/signup"}>Signup</Link>
-              </p>
-            </div>
-          </form>
-        </section>
+            </form>
+          </section>
         </div>
       </div>
     )

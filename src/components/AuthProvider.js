@@ -31,7 +31,8 @@ export default class AuthProvider extends Component {
   state = {
     isLogged: false,
     user: {},
-    status: 'loading'
+    status: 'loading',
+    title: ''
   }
 
   setUser = (user) => {
@@ -100,6 +101,7 @@ export default class AuthProvider extends Component {
               logout: this.logoutUser, 
               login: this.loginUser,
               signup: this.signupUser,
+              title: this.title
             }}>
             {children}
           </Provider>    
