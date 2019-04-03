@@ -150,17 +150,17 @@ html {
  }
  
  #menuToggle input{
-   /* display: block;
+   display: block;
    width: 37px;
    height: 32px;
    position: absolute;
    top: -7px;
    left: -5px;
-   cursor: pointer; */
+   cursor: pointer; 
    opacity: 0; /* hide this */
    z-index: 2; /* and place it over the hamburger */
-   /* -webkit-touch-callout: none; */
-   display: block;
+   -webkit-touch-callout: none;
+   /* display: block;
     width: 100vw;
     height: 100vh;
     position: absolute;
@@ -170,7 +170,7 @@ html {
     opacity: 0;
     z-index: 2;
     -webkit-touch-callout: none;
-    margin: 0;
+    margin: 0; */
  }
  
  /*

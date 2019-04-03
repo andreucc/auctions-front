@@ -32,6 +32,7 @@ class Sidebar extends Component {
 
 
                   <ul id="menu">
+                     <input type="checkbox" />
                      <div className="menu-inner">
                         <li>
                            <Link to="/auctions">Home</Link>
