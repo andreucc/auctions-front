@@ -7,6 +7,7 @@ class Signup extends Component {
   state = {
     username: "",
     password: "",
+    error: ''
   };
 
   handleFormSubmit = (event) => {
@@ -15,10 +16,13 @@ class Signup extends Component {
     const password = this.state.password;
 
     this.props.signup({ username, password })
-      .then( (user) => {
+      .then( (data) => {
+        if (data) {
+            const error=data.error;
         this.setState({
             username: "",
             password: "",
+            error: error
         });
       })
       .catch( error => console.log(error) )
@@ -30,7 +34,7 @@ class Signup extends Component {
   }
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, error } = this.state;
     return (
       <div>
         <div className="navbar-annon">
@@ -73,6 +77,8 @@ class Signup extends Component {
         </section>
       </div>
     </div>
+   // amb conditional rendering mostrar l' error.
+    
     )
   }
 }
