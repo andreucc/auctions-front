@@ -32,18 +32,20 @@ class Sidebar extends Component {
 
 
                   <ul id="menu">
-                     <li>
-                        <Link to="/auctions">Home</Link>
-                     </li>
-                     <li>
-                        <Link to="/auctions/finished">Bid history</Link>
-                     </li>
-                     <li>
-                        <Link to="/myprofile">My Profile</Link>
-                     </li>
-                     <li>
-                        <button className="btn-logout" onClick={logout}>Logout</button>
-                     </li>
+                     <div className="menu-inner">
+                        <li>
+                           <Link to="/auctions">Home</Link>
+                        </li>
+                        <li>
+                           <Link to="/auctions/finished">Bid history</Link>
+                        </li>
+                        <li>
+                           <Link to="/myprofile">My Profile</Link>
+                        </li>
+                        <li>
+                           <button className="btn-logout" onClick={logout}>Logout</button>
+                        </li>
+                     </div>
                   </ul>
                </div>
             </nav>
