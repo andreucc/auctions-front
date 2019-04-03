@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
+import CountdownTimer from './CoundownTimer';
 
 class AuctionCard extends Component {
   
   render() {
     
-    const Expiracion = moment(this.props.EndingTime).fromNow();
-
+    //const Expiracion = moment(this.props.EndingTime).fromNow();
     return (
       <li className="card">
         <div className="img-container">
-          <p>Expires {Expiracion}</p>
+          {/* <p>Expires {Expiracion}</p> */}
+          <CountdownTimer expiration={this.props.EndingTime} />
           <Link to={`/auction/${this.props.id}`}><img src={this.props.image} alt="imgservice" /></Link>
           <h3>{this.props.name}</h3>
           <span className="current-price">{this.props.price}€</span>
