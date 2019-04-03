@@ -685,6 +685,15 @@ html {
   height: 20px;
   background-size: contain;
 }
+
+.modal-close.close{
+  width: 100vw;
+  right: 0;
+  top: 0;
+  background: none;
+  height: 100vh;
+}
+
 .modal-close:hover {
   color: #000;
 }
