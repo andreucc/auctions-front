@@ -3,6 +3,7 @@ import NavbarProfile from './NavbarProfile'
 import ProfileHeader from './ProfileHeader'
 import MyAuctionList from './MyAuctionList'
 import apiService from '../lib/api-service'
+import { Link } from 'react-router-dom'
 
 class Profile extends Component {
   
@@ -46,7 +47,7 @@ class Profile extends Component {
               </div>
             </div>
             <div className="buttons-bottom">
-              <a className="btn btn-primary" href="/auction/create">Create auction</a>
+              <Link to={'/auction/create'}><a className="btn btn-primary">Create auction</a></Link>
             </div>
           </div>
       );
