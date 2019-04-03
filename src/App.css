@@ -150,16 +150,27 @@ html {
  }
  
  #menuToggle input{
-   display: block;
+   /* display: block;
    width: 37px;
    height: 32px;
    position: absolute;
    top: -7px;
    left: -5px;
-   cursor: pointer;
+   cursor: pointer; */
    opacity: 0; /* hide this */
    z-index: 2; /* and place it over the hamburger */
-   -webkit-touch-callout: none;
+   /* -webkit-touch-callout: none; */
+   display: block;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: -24px;
+    left: -15px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+    -webkit-touch-callout: none;
+    margin: 0;
  }
  
  /*
@@ -241,6 +252,12 @@ html {
  #menu a {
    text-decoration: none;
    color: #8A9197;
+ }
+
+ .menu-inner{
+   position: relative;
+   z-index: 4;
+   padding: 40px 0;
  }
  
  #menu li {
@@ -685,6 +702,15 @@ html {
   height: 20px;
   background-size: contain;
 }
+
+.modal-close.close{
+  height: 100vh;
+  width: 100vw;
+  right: 0;
+  top: 0;
+  background: none;
+}
+
 .modal-close:hover {
   color: #000;
 }

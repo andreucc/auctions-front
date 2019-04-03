@@ -116,10 +116,11 @@ class AuctionDetail extends Component {
           }
         </div>
         <div id="open-modal" className="modal-window">
+          <a href="#" title="Close" class="modal-close close"></a>
           <div className="modal-box">
             <a href="#" title="Close" class="modal-close"></a>
             <FormCreateBid id={this.state.id} history={this.props.history} />
-            </div>
+          </div>
         </div>
       </div>
     );

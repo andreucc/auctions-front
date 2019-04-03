@@ -108,8 +108,6 @@ class FormEditUser extends Component {
                            <div className="buttons-bottom">
                               <button className="btn btn-primary" type="submit">Update</button>
                            </div>
-                          
-                           
                         </form>
                      </section>
                   </div>
