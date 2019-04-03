@@ -636,10 +636,6 @@ html {
   background: url('../src/images/edit.svg') no-repeat; 
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 97c759809036cba1a3ed8e6c3498f575ecacba28
 .modal-window {
   position: fixed;
   background-color: rgba(000, 000, 000, 0.7);
@@ -666,11 +662,7 @@ html {
   transform: translate(-50%, -50%);
   padding: 2em;
   background: #fff;
-<<<<<<< HEAD
   color: rgb(24, 4, 4);
-=======
-  color: #333;
->>>>>>> 97c759809036cba1a3ed8e6c3498f575ecacba28
 }
 .modal-window header {
   font-weight: bold;
@@ -693,8 +685,4 @@ html {
 }
 .modal-close:hover {
   color: #000;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 97c759809036cba1a3ed8e6c3498f575ecacba28
