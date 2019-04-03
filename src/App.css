@@ -431,7 +431,18 @@ html {
   color: #ffffff;
   font-size: 1.2em;
   margin: 15px;
-  text-shadow: 2px 2px 2px rgb(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.8);
+  line-height: 1.6em;
+}
+
+.card .img-container h3{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #ffffff;
+  font-size: 1.2em;
+  margin: 15px;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.8);
   line-height: 1.6em;
 }
 

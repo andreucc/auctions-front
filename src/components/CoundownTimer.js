@@ -57,7 +57,7 @@ class CountdownTimer extends Component {
   render() {
     const {days, hours, minutes, seconds} = this.state
 
-    return (<p> Auction ends in: {days}days {hours}:{minutes}:{seconds}</p>);
+    return (<p> {days} days {hours}:{minutes}:{seconds}</p>);
 
   }
 }

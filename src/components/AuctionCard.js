@@ -6,15 +6,14 @@ import CountdownTimer from './CoundownTimer';
 class AuctionCard extends Component {
   
   render() {
-    
     //const Expiracion = moment(this.props.EndingTime).fromNow();
     return (
       <li className="card">
         <div className="img-container">
           {/* <p>Expires {Expiracion}</p> */}
+          <h3>{this.props.name}</h3>
           <CountdownTimer expiration={this.props.EndingTime} />
           <Link to={`/auction/${this.props.id}`}><img src={this.props.image} alt="imgservice" /></Link>
-          <h3>{this.props.name}</h3>
           <span className="current-price">{this.props.price}€</span>
         </div>
         <div className="info-container">
