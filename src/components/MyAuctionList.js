@@ -80,6 +80,7 @@ class MyAuctionList extends Component {
                     userimage={auction.buyer.image}
                     buyername={auction.buyer.username}
                     buyerlocation={auction.buyer.location}
+                    EndingTime={auction.service.EndingTime}
                   />
                 })
                 }
