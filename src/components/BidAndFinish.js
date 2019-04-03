@@ -61,8 +61,8 @@ class BidAndFinish extends Component {
 
 
   render() {
-    // status, showwinned,
-    const {  classButtonWinned, classButtonLoosed } = this.state
+    // status
+    const { showwinned, classButtonWinned, classButtonLoosed } = this.state
     return (
       <div>
         <Navbar data='Bidded Finished Auctions'/>
@@ -70,10 +70,31 @@ class BidAndFinish extends Component {
           <div className="row">
            <div>
            <div className="tabs-container">
-                  <button className={classButtonWinned} onClick={this.showWinned}>Auction</button>
-                  <button className={classButtonLoosed} onClick={this.showLoosed}>My Auctions</button>
+            <button className={classButtonWinned} onClick={this.showWinned}>Winned</button>
+            <button className={classButtonLoosed} onClick={this.showLoosed}>Loosed</button>
            </div>  
+           {showwinned === true ?
             <ul>
+            {this.state.winned.map((auction, index) => {
+              return <AuctionCard
+                key={`id-${index}`}
+                id={auction.service._id}
+                image={auction.service.image}
+                name={auction.service.name}
+                owner={auction.service.owner}
+                price={auction.price}
+                userimage={auction.buyer.image}
+                buyername={auction.buyer.username}
+                buyerlocation={auction.buyer.location}
+                EndingTime={auction.service.EndingTime}
+                status={auction.service.status}
+                currentUser={this.state.id}
+                winnerId={auction.buyer._id}
+              />
+            })
+            }
+            </ul>
+            : <ul>
             {this.state.auctions.map((auction, index) => {
               return <AuctionCard
                 key={`id-${index}`}
@@ -93,7 +114,8 @@ class BidAndFinish extends Component {
             })
             }
             </ul>
-              </div>
+           }
+            </div>
             </div>
           </div>
       </div>
