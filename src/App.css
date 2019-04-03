@@ -675,18 +675,22 @@ html {
   color: #333;
 }
 .modal-close {
-  color: #aaa;
-  line-height: 50px;
-  font-size: 80%;
+  background: url('../src/images/close.png') no-repeat;
   position: absolute;
-  right: 0;
+  right: 15px;
   text-align: center;
-  top: 0;
-  width: 70px;
+  top: 15px;
+  width: 20px;
   text-decoration: none;
+  height: 20px;
+  background-size: contain;
 }
 .modal-close:hover {
   color: #000;
+}
+
+.modal-box .modal-container h2{
+  margin:  0 0 25px 0;
 }
 
 .modal-form{
@@ -700,8 +704,7 @@ html {
 
 .modal-form .btn-primary{
   flex-basis: 40%;
-  box-shadow: none;
-  
+  box-shadow: none;  
 } 
 
 .modal-form .container-fields input{
@@ -711,5 +714,6 @@ html {
   padding: 16px;
   border-radius: 50px;
   width: 100%;
-  font-size: 0.9em;
+  font-size: 1.2em;
+  font-weight: bold;
 }
