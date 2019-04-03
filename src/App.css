@@ -662,7 +662,7 @@ html {
   transform: translate(-50%, -50%);
   padding: 2em;
   background: #fff;
-  color: #333;
+  color: rgb(24, 4, 4);
 }
 .modal-window header {
   font-weight: bold;

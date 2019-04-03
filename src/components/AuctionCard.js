@@ -24,6 +24,9 @@ class AuctionCard extends Component {
             <h4>{this.props.buyername}</h4>
           </div>
           <p className="location">{this.props.buyerlocation}</p>
+          {this.props.status === false && this.props.currentUser === this.props.winnerId
+          ? <h3>WINNER</h3> : null }
+          {/* <p>status {this.props.status} cu {this.props.currentUser} wid {this.props.winnerId}</p> */}
         </div>
       </li>
     );

@@ -16,7 +16,7 @@ import MyAuctionList from './components/MyAuctionList';
 import './App.css'
 import AuctionDetail from './components/AuctionDetail';
 import FormCreateBid from './components/FormCreateBid';
-
+import BidAndFinish from './components/BidAndFinish'
 
 class App extends Component {
   render() {
@@ -34,6 +34,7 @@ class App extends Component {
             <PrivateRoute exact path="/auction/:id" component={AuctionDetail}/>
             <PrivateRoute exact path="/bid/create/:id" component={FormCreateBid}/>
             {/* <PrivateRoute exact path="/maintenance" component={}/> */}
+            <PrivateRoute exact path="/auctions/finished" component={BidAndFinish}/>
           </Switch>
       </AuthProvider>
     )

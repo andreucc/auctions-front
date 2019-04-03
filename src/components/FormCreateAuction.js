@@ -87,7 +87,7 @@ class FormCreateAuction extends Component {
 
     return (
       <div>
-        <Navbar data='data' />
+        <Navbar data='Create Auction' />
         <div className="row">
           <section className="form-section">
             <form className="user-form" onSubmit={this.handleCreate}>

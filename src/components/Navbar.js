@@ -13,7 +13,7 @@ class Navbar extends Component {
         <div className="navbar">
           <div className="row navbar-inner">
             <Sidebar />
-            <p>menu</p>
+            <p>{this.props.data}</p>
             <Link to="/myprofile">
               <img className="img-profile" src={image} alt="" />
             </Link>

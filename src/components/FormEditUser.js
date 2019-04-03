@@ -69,7 +69,7 @@ class FormEditUser extends Component {
          case true:
             return (
                <div>
-                  <Navbar data='data'/>
+                  <Navbar data='Edit User'/>
                   <div className="row">
                      <section className="form-section">
                         <form className="user-form" onSubmit={this.handleUpdateUser}>

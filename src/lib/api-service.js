@@ -62,6 +62,21 @@ class ApiService {
     return this.api.get('/api/maintenance')
     .then(({data})=> data)
   }
+  mybiddedAuctions() {
+    return this.api.get('api/auctions/bidded')
+    .then(({ data }) => data);
+  }
+
+  mybiddedFinishedAuctions() {
+    return this.api.get('/api/auctions/bidded/finished')
+    .then(({ data }) => data);
+  }
+
+  myWinnedAuctions () {
+    return this.api.get('/api/auctions/bidded/winned')
+    .then(({ data }) => data);
+  }
+
 }
 
 const apiService = new ApiService();
