@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 class FormCreateBid extends Component {
   state = {
-    id: this.props.match.params.id,
+    id: this.props.id,
     price:''
   }
   
@@ -28,8 +28,9 @@ class FormCreateBid extends Component {
     const { id, price } = this.state;
     const body = {id, price}
     apiService.createBid(body).then(()=>{
+    //this.props.history.push(`/auction/${id}#`)
       this.props.history.push('/auctions')
-    })
+  })
     
   }
 

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Navbar from './Navbar';
 import apiService from '../lib/api-service'
 import { withAuth } from '../components/AuthProvider';
-import {Link} from 'react-router-dom'
+import FormCreateBid from '../components/FormCreateBid'
+import {Link} from 'react-router-dom';
+
 
 class AuctionDetail extends Component {
   
@@ -68,9 +70,10 @@ class AuctionDetail extends Component {
   render() {
     const {image, name, price, imageBuyer, nameBuyer, owner, description, ownerImage, ownerLocation, ownerName} = this.state
     const { user } = this.props
+    console.log('hola' + this.props.history)
     return (
       <div>
-        <Navbar/>
+        <Navbar data='Auction Detail'/>
         <div className="main-section">
           <div className="detail">
             <div className="top-content">
@@ -108,8 +111,15 @@ class AuctionDetail extends Component {
         <div className="buttons-bottom">
           {user._id === owner ? 
             <Link to={`/myprofile`}><button className="btn btn-danger" onClick={this.handleDelete}>Delete Auction</button></Link>
-          : <Link to={`/bid/create/${this.state.id}`}><button className="btn btn-primary" >Bid UP</button></Link>  
+            : <a href="#open-modal" className="btn btn-primary" >Bid UP</a>  
+            // : <Link to={`/bid/create/${this.state.id}`}><button className="btn btn-primary" >Bid UP</button></Link>  
           }
+        </div>
+        <div id="open-modal" className="modal-window">
+          <div>
+            <a href="#" title="Close" class="modal-close">Close</a>
+              <FormCreateBid id={this.state.id} history={this.props.history} />
+            </div>
         </div>
       </div>
     );
