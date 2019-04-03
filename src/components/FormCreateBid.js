@@ -44,7 +44,8 @@ class FormCreateBid extends Component {
   render() {
   const { price } = this.state
     return (
-      <div>
+      <div className="modal-container">
+        <h2>Make a bid</h2>
         <form className="modal-form">
           <div className="container-fields">
             <div className="field">

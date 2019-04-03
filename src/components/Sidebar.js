@@ -33,13 +33,13 @@ class Sidebar extends Component {
 
                   <ul id="menu">
                      <li>
-                        <Link to="/myprofile">My Profile</Link>
-                     </li>
-                     <li>
                         <Link to="/auctions">Home</Link>
                      </li>
                      <li>
-                        <Link to="/auctions/finished">Finished Auctions</Link>
+                        <Link to="/auctions/finished">Bid history</Link>
+                     </li>
+                     <li>
+                        <Link to="/myprofile">My Profile</Link>
                      </li>
                      <li>
                         <button className="btn-logout" onClick={logout}>Logout</button>
