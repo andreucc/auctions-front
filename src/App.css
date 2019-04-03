@@ -636,6 +636,8 @@ html {
   background: url('../src/images/edit.svg') no-repeat; 
 }
 
+/* --- Modal --- */
+
 .modal-window {
   position: fixed;
   background-color: rgba(000, 000, 000, 0.7);
@@ -685,4 +687,28 @@ html {
 }
 .modal-close:hover {
   color: #000;
+}
+
+.modal-form{
+  display: flex;
+}
+
+.modal-form .container-fields{
+  flex-basis: 80%;
+  margin-right: 30px;
+}
+
+.modal-form .btn-primary{
+  flex-basis: 40%;
+  box-shadow: none;
+} 
+
+.modal-form .container-fields input{
+  background-color: #F8F8F8;
+  color: #4e4e4e;
+  border: 0;
+  padding: 16px;
+  border-radius: 50px;
+  width: 100%;
+  font-size: 0.9em;
 }

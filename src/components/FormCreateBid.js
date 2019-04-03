@@ -44,11 +44,15 @@ class FormCreateBid extends Component {
   render() {
   const { price } = this.state
     return (
-      <div className="main-section">
-        <form >
-          <input onChange={this.handleInput} type="number" name="price" value={price} placeholder="location" />
+      <div>
+        <form className="modal-form">
+          <div className="container-fields">
+            <div className="field">
+              <input onChange={this.handleInput} type="number" name="price" value={price} placeholder="location" />
+            </div>
+          </div>
           {/* <Link to="/auctions"><button type="submit">Bid NOW</button></Link> */}
-          <p onClick={this.handleCreateBid}>Pujar</p>
+          <button className="btn btn-primary" onClick={this.handleCreateBid}>Bid</button>
         </form>
       </div>
     );

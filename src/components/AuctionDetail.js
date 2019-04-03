@@ -111,14 +111,14 @@ class AuctionDetail extends Component {
         <div className="buttons-bottom">
           {user._id === owner ? 
             <Link to={`/myprofile`}><button className="btn btn-danger" onClick={this.handleDelete}>Delete Auction</button></Link>
-            : <a href="#open-modal" className="btn btn-primary" >Bid UP</a>  
-            // : <Link to={`/bid/create/${this.state.id}`}><button className="btn btn-primary" >Bid UP</button></Link>  
+            : <a href="#open-modal" className="btn btn-primary" >Bid up</a>  
+            // : <Link to={`/bid/create/${this.state.id}`}><button className="btn btn-primary" >Bid up</button></Link>  
           }
         </div>
         <div id="open-modal" className="modal-window">
-          <div>
+          <div className="modal-box">
             <a href="#" title="Close" class="modal-close">Close</a>
-              <FormCreateBid id={this.state.id} history={this.props.history} />
+            <FormCreateBid id={this.state.id} history={this.props.history} />
             </div>
         </div>
       </div>
