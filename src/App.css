@@ -701,6 +701,7 @@ html {
 .modal-form .btn-primary{
   flex-basis: 40%;
   box-shadow: none;
+  
 } 
 
 .modal-form .container-fields input{
