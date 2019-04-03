@@ -63,14 +63,25 @@ class AuctionDetail extends Component {
       const id = this.state.id
       apiService.getAuctionDetail(id)
       .then((data) => {
-        console.log(data);
+        this.setState ({
+          price: data.auction[0].price
+        })
+      })
+    }
+
+    UpdatePrice = () =>{
+      const id = this.state.id
+      apiService.getAuctionDetail(id)
+      .then((data) => {
+        this.setState ({
+          price: data.auction[0].price
+        })
       })
     }
 
   render() {
     const {image, name, price, imageBuyer, nameBuyer, owner, description, ownerImage, ownerLocation, ownerName} = this.state
     const { user } = this.props
-    console.log('hola' + this.props.history)
     return (
       <div>
         <Navbar data='Auction Detail'/>
@@ -119,7 +130,7 @@ class AuctionDetail extends Component {
           <a href="#" title="Close" class="modal-close close"></a>
           <div className="modal-box">
             <a href="#" title="Close" class="modal-close"></a>
-            <FormCreateBid id={this.state.id} history={this.props.history} />
+            <FormCreateBid id={this.state.id} history={this.props.history} updated={this.UpdatePrice}/>
           </div>
         </div>
       </div>

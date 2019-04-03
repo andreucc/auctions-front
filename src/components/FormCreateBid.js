@@ -10,7 +10,6 @@ class FormCreateBid extends Component {
   
   componentDidMount() {
     const id = this.state.id
-    console.log(id)
       apiService.getAuctionDetail(id)
       .then((data) => {
         console.log(data);
@@ -28,8 +27,8 @@ class FormCreateBid extends Component {
     const { id, price } = this.state;
     const body = {id, price}
     apiService.createBid(body).then(()=>{
-    //this.props.history.push(`/auction/${id}#`)
-      this.props.history.push('/auctions')
+      this.props.updated()
+      //this.props.history.push('/auctions')
   })
     
   }

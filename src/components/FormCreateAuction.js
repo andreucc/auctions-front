@@ -58,6 +58,7 @@ class FormCreateAuction extends Component {
     }
     else {
       apiService.createAuction(body);
+      this.props.history.push('/auctions')
     }
   }
 
