@@ -91,6 +91,7 @@ class AuctionList extends Component {
                       buyername={auction.buyer.username}
                       buyerlocation={auction.buyer.location}
                       EndingTime={auction.service.EndingTime}
+                      status={auction.service.status}
                     />
                   })
                   }
