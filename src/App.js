@@ -33,6 +33,7 @@ class App extends Component {
             <PrivateRoute exact path="/auction/create" component={FormCreateAuction}/>
             <PrivateRoute exact path="/auction/:id" component={AuctionDetail}/>
             <PrivateRoute exact path="/bid/create/:id" component={FormCreateBid}/>
+            {/* <PrivateRoute exact path="/maintenance" component={}/> */}
           </Switch>
       </AuthProvider>
     )

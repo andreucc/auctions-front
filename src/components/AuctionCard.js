@@ -5,7 +5,7 @@ import moment from 'moment';
 class AuctionCard extends Component {
   
   render() {
-    console.log(this.props);
+    
     const Expiracion = moment(this.props.EndingTime).fromNow();
 
     return (

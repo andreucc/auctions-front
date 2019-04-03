@@ -23,6 +23,8 @@ class FormCreateAuction extends Component {
     progress: 0
   }
 
+
+  
   componentDidMount() {
     const now = moment();
     const today = now.format('YYYY-MM-DD');

@@ -11,6 +11,14 @@ class AuctionList extends Component {
   }
 
   componentDidMount() {
+    apiService.checkAuction()
+      .then ((data)=>{
+        console.log(data)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+
     apiService.getAuctions()
       .then((data) => {
         console.log(data)

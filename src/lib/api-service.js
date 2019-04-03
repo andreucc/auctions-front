@@ -57,6 +57,11 @@ class ApiService {
     return this.api.delete(`/api/auction/${id}`)
     .then(({ data }) => data.data)
   }
+
+  checkAuction() {
+    return this.api.get('/api/maintenance')
+    .then(({data})=> data)
+  }
 }
 
 const apiService = new ApiService();
