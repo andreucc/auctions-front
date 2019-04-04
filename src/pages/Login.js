@@ -8,7 +8,7 @@ class Login extends Component {
     password: "",
     error: '',
   }
-  
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, password } = this.state
@@ -35,7 +35,7 @@ class Login extends Component {
   }
 
   render() {
-    
+
     const { username, password, error } = this.state;
     return (
       <div>
@@ -56,15 +56,14 @@ class Login extends Component {
                   <label>Password:</label>
                   <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" required />
                 </div>
-                {error ? <p>hola{error}</p> : <p>ana</p>}
+
               </div>
 
               <div className="buttons-bottom form">
                 <input className="btn btn-primary" type="submit" value="Login" />
-                <p>Don't have you acount? <Link to={"/signup"}> Signup</Link></p>
+                <p>Don't have an account? <Link to={"/signup"}> Signup</Link></p>
               </div>
-
-              {error && <h4>{error}</h4>}
+              {error ? <p>{error}</p> : <p></p>}
             </form>
           </section>
         </div>
