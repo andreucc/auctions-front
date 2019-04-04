@@ -109,19 +109,19 @@ class FormCreateAuction extends Component {
                 </div>
                 <div className="field">
                   <label>Service name</label>
-                  <input onChange={this.handleInput} type="text" name="name" value={name} placeholder="Name" />
+                  <input onChange={this.handleInput} type="text" name="name" value={name} placeholder="Name" required/>
                 </div>
                 <div className="field">
                   <label>Description</label>
-                  <input onChange={this.handleInput} type="text" name="description" value={description} placeholder="Description" />
+                  <input onChange={this.handleInput} type="text" name="description" value={description} placeholder="Description" required />
                 </div>
                 <div className="field">
                   <label>Starting price</label>
-                  <input onChange={this.handleInput} type="number" name="StartingPrice" value={StartingPrice} placeholder="StartingPrice" min="1" />
+                  <input onChange={this.handleInput} type="number" name="StartingPrice" value={StartingPrice} placeholder="StartingPrice" min="1" required />
                 </div>
                 <div className="field">
                   <label>End Date</label>
-                  <input type="date" onChange={this.handleInput} defaultValue={defaultDate} min={today} max={maxDate} name="EndingDate" value={EndingDate} />
+                  <input type="date" onChange={this.handleInput} defaultValue={defaultDate} min={today} max={maxDate} name="EndingDate" value={EndingDate} required />
                   <label>End Time</label>
                   <input type="time" onChange={this.handleInput} defaultValue={defaultTime} name="Time" value={Time}/>
                 </div>

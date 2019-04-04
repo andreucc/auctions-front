@@ -16,21 +16,22 @@ class Signup extends Component {
     const password = this.state.password;
 
     this.props.signup({ username, password })
-      .then( (data) => {
+      .then((data) => {
         if (data) {
-            const error=data.error;
-        this.setState({
+          const error = data.error;
+          this.setState({
             username: "",
             password: "",
             error: error
-        });
+          })
+        }
       })
-      .catch( error => console.log(error) )
+      .catch(error => console.log(error))
   }
 
-  handleChange = (event) => {  
-    const {name, value} = event.target;
-    this.setState({[name]: value});
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -54,31 +55,31 @@ class Signup extends Component {
             <Link to={"/login"}> Login</Link>
           </p>
       </section> */}
-      <div className="row">
-        <section className="form-section">
-          <form className="user-form" onSubmit={this.handleFormSubmit}>
-            <div className="container-fields">
-              <div className="field">
-                <label>Username</label>
-                <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username"/>
+        <div className="row">
+          <section className="form-section">
+            <form className="user-form" onSubmit={this.handleFormSubmit}>
+              <div className="container-fields">
+                <div className="field">
+                  <label>Username</label>
+                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username" />
+                </div>
+                <div className="field">
+                  <label>Password</label>
+                  <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" />
+                </div>
               </div>
-              <div className="field">
-                <label>Password</label>
-                <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" />
-              </div>
-            </div>
-            <div className="buttons-bottom form">
-              <input className="btn btn-primary" type="submit" value="Signup" />
-              <p>Already have account? 
+              <div className="buttons-bottom form">
+                <input className="btn btn-primary" type="submit" value="Signup" />
+                <p>Already have account?
               <Link to={"/login"}> Login</Link>
-              </p>
-            </div>
-          </form>
-        </section>
+                </p>
+              </div>
+            </form>
+          </section>
+        </div>
       </div>
-    </div>
-   // amb conditional rendering mostrar l' error.
-    
+      // amb conditional rendering mostrar l' error.
+
     )
   }
 }

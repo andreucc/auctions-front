@@ -6,6 +6,7 @@ class Login extends Component {
   state = {
     username: "",
     password: "",
+    error: ''
   }
 
   handleFormSubmit = (event) => {
@@ -13,9 +14,18 @@ class Login extends Component {
     const { username, password } = this.state
 
     this.props.login({ username, password })
+    // if (data) {
+    //   const error = data.error;
+    //   this.setState({
+    //     username: "",
+    //     password: "",
+    //     error: error
+    //   })
+    // }
+
       .then(() => {
-        this.props.history.push('/auctions')
-      })
+      this.props.history.push('/auctions')
+    })
       .catch(error => console.log(error))
   }
 
@@ -39,7 +49,7 @@ class Login extends Component {
               <div className="container-fields">
                 <div className="field">
                   <label>Username:</label>
-                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username"/>
+                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username" />
                 </div>
                 <div className="field">
                   <label>Password:</label>

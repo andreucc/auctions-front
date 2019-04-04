@@ -101,7 +101,7 @@ class FormEditUser extends Component {
                               </div>
                               <div className="field">
                                  <label>Mobile</label>  
-                                 <input onChange={this.handleInput} type="number" name="mobile" value={mobile} placeholder="mobile" />
+                                 <input onChange={this.handleInput} type="tel" name="mobile" value={mobile} placeholder="mobile"/>
                               </div>
                            </div>
                            {/* <input type="submit" value="submit"/> */}
