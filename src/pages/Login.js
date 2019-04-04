@@ -6,28 +6,26 @@ class Login extends Component {
   state = {
     username: "",
     password: "",
-    error: ''
+    error: '',
   }
-
+  
   handleFormSubmit = (event) => {
     event.preventDefault();
     const { username, password } = this.state
 
     this.props.login({ username, password })
-    
-    .then((error) => {
-      if (error) {
-        console.log('error ' + error.data.code)
-        this.setState({
-          username: "",
-          password: "",
-          error: error.data.code,
-          isError: true
-        })
-      }
-   
-      this.props.history.push('/auctions')
-    })
+      .then((error) => {
+        if (error) {
+          this.setState({
+            username: "",
+            password: "",
+            error: error.data.code,
+          })
+        }
+        else {
+          this.props.history.push('/auctions')
+        }
+      })
       .catch(error => console.log(error))
   }
 
@@ -37,7 +35,8 @@ class Login extends Component {
   }
 
   render() {
-    const { username, password, error, isError } = this.state;
+    
+    const { username, password, error } = this.state;
     return (
       <div>
         <div className="navbar-annon">
@@ -51,26 +50,27 @@ class Login extends Component {
               <div className="container-fields">
                 <div className="field">
                   <label>Username:</label>
-                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username" required/>
+                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username" required />
                 </div>
                 <div className="field">
                   <label>Password:</label>
-                  <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" required/>
+                  <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" required />
                 </div>
-                { isError ? <h4>{error}</h4> : null  }
+                {error ? <p>hola{error}</p> : <p>ana</p>}
               </div>
-              
+
               <div className="buttons-bottom form">
                 <input className="btn btn-primary" type="submit" value="Login" />
                 <p>Don't have you acount? <Link to={"/signup"}> Signup</Link></p>
               </div>
-              
-              { isError && <h4>{error}</h4>   }
+
+              {error && <h4>{error}</h4>}
             </form>
           </section>
         </div>
       </div>
     )
+
   }
 }
 

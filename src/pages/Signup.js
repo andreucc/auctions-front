@@ -10,6 +10,7 @@ class Signup extends Component {
     error: ''
   };
 
+
   handleFormSubmit = (event) => {
     event.preventDefault();
     const username = this.state.username;
