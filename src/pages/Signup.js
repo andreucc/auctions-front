@@ -43,29 +43,17 @@ class Signup extends Component {
             <p>Signup</p>
           </div>
         </div>
-        {/* <section>
-          <form onSubmit={this.handleFormSubmit}>
-            <label>Username:</label>
-            <input type="text" name="username" value={username} onChange={this.handleChange}/>
-            <label>Password:</label>
-            <input type="password" name="password" value={password} onChange={this.handleChange} />
-            <input type="submit" value="Signup" />
-          </form>
-          <p>Already have account? 
-            <Link to={"/login"}> Login</Link>
-          </p>
-      </section> */}
         <div className="row">
           <section className="form-section">
             <form className="user-form" onSubmit={this.handleFormSubmit}>
               <div className="container-fields">
                 <div className="field">
                   <label>Username</label>
-                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username" />
+                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username" required/>
                 </div>
                 <div className="field">
                   <label>Password</label>
-                  <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" />
+                  <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" required/>
                 </div>
               </div>
               <div className="buttons-bottom form">
@@ -74,6 +62,7 @@ class Signup extends Component {
               <Link to={"/login"}> Login</Link>
                 </p>
               </div>
+              { error && <h4>{error}</h4>   }
             </form>
           </section>
         </div>

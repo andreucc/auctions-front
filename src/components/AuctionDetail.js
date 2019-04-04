@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import apiService from '../lib/api-service'
 import { withAuth } from '../components/AuthProvider';
 import FormCreateBid from '../components/FormCreateBid'
+import CountdownTimer from './CoundownTimer'
 import {Link} from 'react-router-dom';
 
 
@@ -43,7 +44,9 @@ class AuctionDetail extends Component {
           ownerImage: data.owner.image,
           ownerLocation: data.owner.location,
           status: true,
-          idAuction: data.auction[0]
+          idAuction: data.auction[0],
+          EndingTime: data.auction[0].service.EndingTime
+          
         })
       })
       .catch((err) => {
@@ -80,7 +83,7 @@ class AuctionDetail extends Component {
     }
 
   render() {
-    const {image, name, price, imageBuyer, nameBuyer, owner, description, ownerImage, ownerLocation, ownerName} = this.state
+    const {image, name, price, imageBuyer, nameBuyer, owner, description, ownerImage, ownerLocation, ownerName, EndingTime, status} = this.state
     const { user } = this.props
     return (
       <div>
@@ -88,7 +91,7 @@ class AuctionDetail extends Component {
         <div className="main-section">
           <div className="detail">
             <div className="top-content">
-              <p>Timer</p>
+            <CountdownTimer expiration={EndingTime} status={status} />
               <img src={image} alt="img"/>
               <span className="current-price">{price}€</span>
             </div>

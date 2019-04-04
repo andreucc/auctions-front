@@ -14,16 +14,18 @@ class Login extends Component {
     const { username, password } = this.state
 
     this.props.login({ username, password })
-    // if (data) {
-    //   const error = data.error;
-    //   this.setState({
-    //     username: "",
-    //     password: "",
-    //     error: error
-    //   })
-    // }
-
-      .then(() => {
+    
+    .then((error) => {
+      if (error) {
+        console.log('error ' + error.data.code)
+        this.setState({
+          username: "",
+          password: "",
+          error: error.data.code,
+          isError: true
+        })
+      }
+   
       this.props.history.push('/auctions')
     })
       .catch(error => console.log(error))
@@ -35,7 +37,7 @@ class Login extends Component {
   }
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, error, isError } = this.state;
     return (
       <div>
         <div className="navbar-annon">
@@ -49,17 +51,21 @@ class Login extends Component {
               <div className="container-fields">
                 <div className="field">
                   <label>Username:</label>
-                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username" />
+                  <input type="text" name="username" value={username} onChange={this.handleChange} placeholder="username" required/>
                 </div>
                 <div className="field">
                   <label>Password:</label>
-                  <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" />
+                  <input type="password" name="password" value={password} onChange={this.handleChange} placeholder="password" required/>
                 </div>
+                { isError ? <h4>{error}</h4> : null  }
               </div>
+              
               <div className="buttons-bottom form">
                 <input className="btn btn-primary" type="submit" value="Login" />
                 <p>Don't have you acount? <Link to={"/signup"}> Signup</Link></p>
               </div>
+              
+              { isError && <h4>{error}</h4>   }
             </form>
           </section>
         </div>
