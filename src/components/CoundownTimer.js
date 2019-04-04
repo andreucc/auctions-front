@@ -13,6 +13,7 @@ class CountdownTimer extends Component {
 
   componentDidMount() 
    {
+     console.log(this.state.expiration, 'dsfddf')
     const { expiration } = this.state;
     if (this.props.status === true) {
       let datetime = new Date(expiration);

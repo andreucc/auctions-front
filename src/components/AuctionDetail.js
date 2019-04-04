@@ -93,7 +93,6 @@ class AuctionDetail extends Component {
         <div className="main-section">
           <div className="detail">
             <div className="top-content">
-            <CountdownTimer expiration={EndingTime} status={status} />
               <img src={image} alt="img"/>
               <span className="current-price">{price}€</span>
             </div>
