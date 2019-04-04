@@ -77,7 +77,9 @@ class AuctionDetail extends Component {
       apiService.getAuctionDetail(id)
       .then((data) => {
         this.setState ({
-          price: data.auction[0].price
+          price: data.auction[0].price,
+          imageBuyer: data.auction[0].buyer.image,
+          nameBuyer: data.auction[0].buyer.username
         })
       })
     }
