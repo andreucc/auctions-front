@@ -59,7 +59,7 @@ export default class AuthProvider extends Component {
         this.setUser(user);
       })
        // error => error.response.data capturamos el json del backend
-      .catch(error => console.log(error.response.data))
+      .catch(error => error.response)
   }
 
   signupUser = (body) => {
@@ -67,7 +67,7 @@ export default class AuthProvider extends Component {
       .then((user) => {
         this.setUser(user);
       })
-      .catch(error => console.log(error.response.data))
+      .catch(error =>error.response.data)
       // error => error.response.data capturamos el json del backend
   }
 
